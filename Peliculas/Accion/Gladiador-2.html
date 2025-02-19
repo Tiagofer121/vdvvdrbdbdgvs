@@ -126,42 +126,13 @@
   }
 }
 
-    document.getElementById('reproducir').addEventListener('click', function() {
-      // Crea la página con el reproductor de video
-      const videoPage = `
-        <!DOCTYPE html>
-        <html lang="es">
-        <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Reproductor de Video</title>
-          <style>
-            body {
-              background: black;
-              overflow: hidden;
-            }
-            * {
-              margin: 0px;
-              padding: 0px;
-              box-sizing: border-box;
-            }
-            video {
-              width: 100%;
-              height: 100vh;
-            }
-          </style>
-        </head>
-        <body>
-          <video autoplay controls src="http://lumea.duckdns.org:8081/peliculas/accion/Gladiador-2.mp4"></video>
-        </body>
-        </html>
-      `;
-      
-      // Abre una nueva ventana y escribe el contenido HTML
-      const newWindow = window.open('', '', 'width=800,height=600');
-      newWindow.document.write(videoPage);
-      newWindow.document.close();
-    });
+document.getElementById('reproducir').addEventListener('click', function() {
+            // URL del video que quieres reproducir
+            const videoURL = "http://lumea.duckdns.org/peliculas/La%20balada%20de%20Buster%20Scruggs.mp4"; 
+
+            // Redirigir a la página de video.js y pasarle la URL del video
+            window.location.href = `../reproductor.html?video=${encodeURIComponent(videoURL)}`;
+        });
 </script>
 
 </body>
