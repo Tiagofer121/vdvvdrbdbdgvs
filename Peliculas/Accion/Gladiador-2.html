@@ -113,7 +113,7 @@
     <p class="titulo-coleccion">Parte de Gladiator Collection</p>
     <p class="descripcion-coleccion">Incluye Gladiador y Gladiador II</p>
 </div>
-    <a href="" class="boton-coleccion">Ver Coleccion</a>
+    <a id="ver-coleccion" class="boton-coleccion">Ver Coleccion</a>
 
 </div>
 </div>
@@ -139,8 +139,13 @@
 </div>
 </div>
 
-
-
+<div id="colecciones" class="colecciones">
+    <p class="colecciones-p">Coleccion</p>
+    <div class="img-colecciones-div">
+    <a class="a-coleccion" href=""><img class="colecciones-img" src="https://media.themoviedb.org/t/p/w1000_and_h563_face/frr6oKQFw2Py0D48fgnEzYdWs5F.jpg" alt=""></a>
+    <a class="a-coleccion"><img class="colecciones-img" src="https://media.themoviedb.org/t/p/w1000_and_h563_face/oMJBJZ5N4J84Z56B6oYNc77C1wL.jpg" alt=""></a>
+    </div>
+</div>
 
 <div class="espacio"></div>
 
@@ -176,7 +181,6 @@ document.getElementById("Detalles").addEventListener("click", function(event) {
     activarEnlace("Detalles", "relacionado", "informacion-opcion", "relacionado-opcion");
 });
 
-
 document.getElementById("compartir").addEventListener("click", async () => {
             if (navigator.share) {
                 try {
@@ -193,7 +197,22 @@ document.getElementById("compartir").addEventListener("click", async () => {
                 alert("Tu navegador no soporta la función de compartir.");
             }
         });
-        
+ 
+ document.getElementById("ver-coleccion").addEventListener("click", function() {
+    let coleccion = document.getElementById("colecciones");
+
+    if (coleccion.classList.contains("activa")) {
+        coleccion.classList.remove("activa");
+        coleccion.style.display = "none";
+        coleccion.style.margin = "0px -90% 0px";
+    } else {
+        coleccion.classList.add("activa");
+        coleccion.style.display = "block";
+        coleccion.style.margin = "0px 5% 0px";
+    }
+}); 
+
+
 </script>
 
 </body>
