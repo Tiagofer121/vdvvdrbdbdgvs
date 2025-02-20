@@ -20,28 +20,26 @@ img.logo {
 a.reproducir {
     backdrop-filter: drop-shadow(2px 4px 6px black);
     text-align: center;
-    width: 60%;
-    color: white;
     text-decoration: none;
-    background: #120331;
     height: 58px;
+    width: 58px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
+    border-radius: 50%;
     font-size: 1.4rem;
     font-family: 'MiFuente';
+    border: 1px solid white;
 }
 a.compartir-chromcast {
-    width: 18%;
+    width: 58px;
     height: 58px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0px 0px 0px 2%;
-    background: #120331;
-    border-radius: 8px;
-;
+    border-radius: 50%;
+    border: 1px solid white;
 }
 svg.logo-svg-ch {
     width: 30px;
@@ -55,9 +53,7 @@ svg.logo-svg-ch {
     height: 30px;
     margin: 0px 10px;
 }
-a.reproducir:hover,a.compartir-chromcast:hover {
-    background: #200557;
-}
+
 .badges {
     width: 100%;
     height: fit-content;
