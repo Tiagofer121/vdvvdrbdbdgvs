@@ -187,3 +187,29 @@ a.boton-coleccion {
     align-items: center;
     color: #ffffff;
 }
+.colecciones {
+    width: 90%;
+    overflow: auto;
+    display: none;
+    margin: 0px -90% 0px;
+}
+.colecciones.activa {
+    display: flex;
+    margin: 0px 5% 0px;
+}
+.colecciones-img{
+    width: 250px;
+    padding: 10px;
+    border-radius: 20px;
+}
+p.colecciones-p {
+    width: fit-content;
+    color: white;
+    font-size: larger;
+    font-family: 'MiFuente';
+    font-size: 1rem;
+}
+.img-colecciones-div {
+    display: flex;
+    overflow: auto;
+}
