@@ -99,8 +99,8 @@
 
 <div class="mas-informacion">
     <div class="botones-info">
-    <a id="relacionado" class="mas-informacion-a">Relacionado<a>
-    <a id="Detalles" class="mas-informacion-a">Detalles<a>
+    <a id="relacionado" class="active">Relacionado<a>
+    <a id="Detalles" class="inactive">Detalles<a>
     </div>
 
 <div id="relacionado-opcion">
@@ -152,17 +152,28 @@
   }
 }
 
-document.getElementById("relacionado").addEventListener("click", function(event) {
-            event.preventDefault();
-            document.getElementById("relacionado-opcion").style.display = "block";
-            document.getElementById("informacion-opcion").style.display = "none";
-        });
+function activarEnlace(activo, inactivo, divActivo, divInactivo) {
+    event.preventDefault();
+    
+    document.getElementById(divActivo).style.display = "block";
+    document.getElementById(divInactivo).style.display = "none";
 
-        document.getElementById("Detalles").addEventListener("click", function(event) {
-            event.preventDefault();
-            document.getElementById("informacion-opcion").style.display = "block";
-            document.getElementById("relacionado-opcion").style.display = "none";
-        });
+    document.getElementById(activo).classList.add("active");
+    document.getElementById(activo).classList.remove("inactive");
+
+    document.getElementById(inactivo).classList.add("inactive");
+    document.getElementById(inactivo).classList.remove("active");
+}
+
+document.getElementById("relacionado").addEventListener("click", function(event) {
+    activarEnlace("relacionado", "Detalles", "relacionado-opcion", "informacion-opcion");
+});
+
+document.getElementById("Detalles").addEventListener("click", function(event) {
+    activarEnlace("Detalles", "relacionado", "informacion-opcion", "relacionado-opcion");
+});
+
+        
 </script>
 
 </body>
