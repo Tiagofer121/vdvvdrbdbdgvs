@@ -81,13 +81,19 @@ p.duracio-año {
     margin: 30px 5% 0px;
     color: white;
 }
+h5.descripcion-descripcion {
+    width: fit-content;
+    font-size: 1.1rem;
+    margin: 0px 0px 10px;
+    font-family: 'MiFuente';
+}
 .descripcion {
     width: 100%;
     text-align: left;
     color: white;
-    font-family: 'MiFuente';
-    font-size: 1rem;
-    max-height: 99px;
+    font-family: sans-serif;
+    font-size: .8rem;
+    max-height: 80px;
     overflow: hidden;
 }
 .descripcion.extendida{
