@@ -1,12 +1,4 @@
-.fondo-logo {
-    width: 100%;
-    height: 40vh;
-    background-image: url(https://image.tmdb.org/t/p/original/8mjYwWT50GkRrrRdyHzJorfEfcl.jpg);
-    background-size: cover;
-    background-position-x: center;
-    display: flex;
-    align-items: end;
-}
+
 .degradado {
     position: absolute;
     width: 100%;
@@ -46,7 +38,7 @@ a.compartir-chromcast {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0px 1%;
+    margin: 0px 0px 0px 2%;
     background: #120331;
     border-radius: 8px;
 ;
@@ -109,10 +101,10 @@ p.duracio-año {
     width: 100%;
     margin: 30px 0px 0px 0px;
 }
-h5.mas-informacion-h5 {
+.mas-informacion-a {
     width: fit-content;
     font-family: 'MiFuente';
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 h5.titulos-informacion {
     width: fit-content;
@@ -130,5 +122,57 @@ p.informacion-descripcion {
     text-align: left;
 }
 #elenco{
-    text-decoration: solid;
+    text-decoration: underline;
+}
+.botones-info {
+    display: flex;
+    justify-content: space-around;
+    color: #ffffff8c;
+}
+div#informacion-opcion {
+    display: none;
+    margin: 30px 0px 0px 0px;
+}
+div#relacionado-opcion {
+    margin: 30px 0px 0px 0px;
+}
+
+.degradado-coleccion {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(331deg, #050618 30%, transparent);
+    top: 0;
+}
+.informacion-coleccion {
+    position: absolute;
+    margin: 0px 0px 80px 10px;
+    text-align: left;
+    bottom: 0;
+}
+p.titulo-coleccion {
+    font-family: 'MiFuente';
+    font-size: 1.1rem;
+}
+p.descripcion-coleccion {
+    width: fit-content;
+    margin: 5px 0px 0px 0px;
+    font-family: sans-serif;
+    font-size: .8rem;
+    color: gray;
+    
+}
+a.boton-coleccion {
+    position: absolute;
+    margin: 0px 0px 20px 10px;
+    background: linear-gradient(-392deg, #200557, #030c31 60%);
+    padding: 13px;
+    font-size: 1rem;
+    font-family: 'MiFuente';
+    border-radius: 40px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
 }
