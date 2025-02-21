@@ -3,41 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../styles.css">
-    <link rel="stylesheet" href="../styles.css">
-    <title>Gladiador 2</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Categorias</title>
 
     <style>
-    .fondo-logo {
+    .logo {
     width: 100%;
-    height: 40vh;
-    background-image: url(https://image.tmdb.org/t/p/original/8mjYwWT50GkRrrRdyHzJorfEfcl.jpg);
-    background-size: cover;
-    background-position-x: center;
-    display: flex;
-    align-items: end;
+    height: fit-content;
+    margin: 40px 0px 0px 0px;
 }
-    .coleccion-titulo-boton {
-    margin: 0px 0px 0px 0px;
+    .logo-svg {
+        width: 150px;
+    }
+    .buscador {
     width: 100%;
-    height: 300px;
-    background-image: url(https://media.themoviedb.org/t/p/w1000_and_h563_face/1VdLvSIeHuwqCT13H9EafxCacGB.jpg);
-    background-size: cover;
-    background-position-x: center;
-    border-radius: 20px;
-    position: relative;
+    margin: 30px 0px 0px 0px;
+}
+input.buscador-input {
+    width: 80%;
+    height: 45px;
+    border: none;
+    border-radius: 30px;
+    color: #ffffff;
+    padding: 20px;
+    text-align: left;
+    font-weight: 600;
+    background: linear-gradient(-392deg, #200557, #030c31 60%);
+    outline: none;
+}
+.categorias {
+    width: 100%;
+    margin: 60px 0px 0px 0px;
     display: flex;
-    align-items: end;
+    color: white;
+}
+.categorias-filtro {
+    margin: 0px 0px 0px 5%;
+    width: 100px;
+    height: 40px;
+    color: white;
+    border-radius: 30px;
+    border: none;
+    background: #030c31;
+    font-family: sans-serif;
+    font-weight: 600;
+    outline: none;
+}
+.resultado-peliculas-series {
+    margin: 20px 2.5% 0px;
+    width: 95%;
+    height: fit-content;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+}
+.pelicula {
+    width: 50%;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+    max-width: 250px;
+}
+.pelicula img {
+    width: 100%;
+    border-radius: 5px;
+}
+h3.titulo-pelicula-serie {
+    width: fit-content;
+    font-size: .8rem;
+    margin: 10px 0px 0px;
+    font-family: 'MiFuente';
+    color: white;
+    text-decoration: none;
 }
     </style>
 </head>
 <body>
 
-
-    
 <div class="menu">
         <div class="opciones-texto-svg">
-            <a href="../../index.html"><svg class="iconos-svg" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
+            <a href="index.html"><svg class="iconos-svg" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
 
                 <path class="Logo-menu-svg-path" d="M22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274" stroke-width="1.5" stroke-linecap="round"></path>
                 </svg></a>
@@ -45,21 +90,17 @@
                 Inicio
             </p>
         </div>
-
-
         <div class="opciones-texto-svg">
-            <a href="../../categorias.html"><svg class="iconos-svg" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
+            <svg class="iconos-svg" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
                 <path class="Logo-menu-svg-path" d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z" />
                 <path class="Logo-menu-svg-path" d="M7.24 13.4297H5.34C3.15 13.4297 2 14.5797 2 16.7597V18.6597C2 20.8497 3.15 21.9997 5.33 21.9997H7.23C9.41 21.9997 10.56 20.8497 10.56 18.6697V16.7697C10.57 14.5797 9.42 13.4297 7.24 13.4297Z" />
                 <path class="Logo-menu-svg-path" d="M6.29 10.58C8.6593 10.58 10.58 8.6593 10.58 6.29C10.58 3.9207 8.6593 2 6.29 2C3.9207 2 2 3.9207 2 6.29C2 8.6593 3.9207 10.58 6.29 10.58Z" />
                 <path class="Logo-menu-svg-path" d="M17.7099 22.0019C20.0792 22.0019 21.9999 20.0812 21.9999 17.7119C21.9999 15.3426 20.0792 13.4219 17.7099 13.4219C15.3406 13.4219 13.4199 15.3426 13.4199 17.7119C13.4199 20.0812 15.3406 22.0019 17.7099 22.0019Z" />
-                </svg></a>
+                </svg>
             <p class="opciones-menu-p">
                 Categorias
             </p>
         </div>
-
-
         <div class="opciones-texto-svg">
             <svg class="iconos-svg" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
                 <path class="Logo-menu-svg-path" d="M22 16.0001V12.0001C22 9.17169 22 7.75747 21.1213 6.87879C20.296 6.05349 18.9983 6.00336 16.5 6.00031V21.9999C18.9983 21.9969 20.296 21.9467 21.1213 21.1214C22 20.2428 22 18.8285 22 16.0001ZM19 11C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13C18.4477 13 18 12.5523 18 12C18 11.4477 18.4477 11 19 11ZM19 15C19.5523 15 20 15.4477 20 16C20 16.5523 19.5523 17 19 17C18.4477 17 18 16.5523 18 16C18 15.4477 18.4477 15 19 15Z" />
@@ -71,154 +112,93 @@
         </div>
 </div>
 
-<div class="fondo-logo">
-    <div class="degradado"></div>
-    <img src="https://media.themoviedb.org/t/p/w1280/phliRHzrDQapwqLFKuCDDNDYbXH.png" alt="" class="logo">
+<div class="logo">
+    <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 403.99 149.91">
+        <defs>
+          <style>
+            .cls-1 {
+                fill: #ffffff;
+                stroke-width: 13px;
+            }
+      
+            .cls-1, .cls-2, .cls-3 {
+              stroke-miterlimit: 10;
+            }
+      
+            .cls-2 {
+              stroke-width: 3px;
+            }
+      
+            .cls-2, .cls-3 {
+              stroke: var(--Evolum);
+              fill: white;
+            }
+            path.cls-4 {
+                fill: white;
+            }
+          </style>
+        </defs>
+        <path class="cls-1" d="M6.5,6.5h0c9.44,0,17.1,7.66,17.1,17.1v44.42c0,31.26,25.34,56.61,56.61,56.61h0v14.35h0c-40.71,0-73.71-33-73.71-73.71V6.5Z"/>
+        <path class="cls-2" d="M148.25,120.3c0,9.83.2,18.48.79,25.94h0c-8.62,0-15.76-6.7-16.3-15.3v-.23h-.41c-4.52,7.66-14.55,17.69-31.45,17.69-14.94,0-32.82-8.26-32.82-41.67v-55.62h0c9.55,0,17.3,7.74,17.3,17.3v35.38c0,18.08,5.5,30.27,21.23,30.27,11.6,0,19.66-8.06,22.8-15.72.98-2.55,1.57-5.7,1.57-8.84v-58.37h0c9.55,0,17.3,7.74,17.3,17.3v51.89Z"/>
+        <path class="cls-4" d="M130.85,76.87c0-9.83-.2-17.89-.79-25.75h0c8.48,0,15.48,6.64,15.91,15.11v.22h.6c5.31-9.04,14.15-17.49,29.88-17.49,12.97,0,22.8,7.86,26.93,19.06h.39c2.95-5.3,6.68-9.43,10.61-12.38,5.7-4.32,11.99-6.68,21.03-6.68,12.58,0,31.25,8.25,31.25,41.27v56.02h-16.9v-53.85c0-18.28-6.68-29.29-20.64-29.29-9.83,0-17.49,7.27-20.44,15.72-.79,2.36-1.38,5.5-1.38,8.65v58.77h-16.9v-57c0-15.14-6.68-26.14-19.85-26.14-10.81,0-18.67,8.65-21.42,17.3-.98,2.55-1.38,5.5-1.38,8.45v57.39h0c-9.34,0-16.9-7.57-16.9-16.9v-52.48Z"/>
+        <path class="cls-4" d="M400.34,144.65c-6.88,0-12.66-5.16-13.44-11.99h-.59c-5.31,7.47-15.53,14.15-29.09,14.15-19.26,0-29.09-13.56-29.09-27.32,0-1.16,0-15.12,9.94-22.79,12.23-9.44,35.75-6.48,45.29-12.58.44-.28,1.97-.7,1.97-1.97,0-7.86-2.16-22.01-21.62-22.01-5.53,0-11.21,1.07-16.32,2.94-4.79,1.75-10.09-.66-11.76-5.48l-.61-1.78c7.86-5.11,19.26-8.45,31.25-8.45,29.09,0,36.17,19.85,36.17,38.92v35.58c0,8.25.39,16.31,1.57,22.8h-3.66ZM385.71,98.05c0-1.08-.87-1.97-1.95-1.98-18.37-.12-38.35,3.61-38.35,21.45,0,11.2,7.47,16.51,16.31,16.51,12.38,0,20.25-7.86,23-15.92.59-1.77.98-3.73.98-5.5v-14.56Z"/>
+        <path class="cls-3" d="M278.75,103.01c.39,23.39,15.33,33.02,32.63,33.02,12.38,0,19.85-2.16,26.34-4.91h0c1.79,7.53-2.99,15.07-10.58,16.59-5.04,1.01-11.07,1.69-18.12,1.69-29.28,0-46.78-19.26-46.78-47.96s16.9-51.3,44.62-51.3c31.05,0,39.31,27.32,39.31,44.81v4.09c0,2.19-1.78,3.97-3.98,3.97h-63.44ZM329.46,90.63c.2-11.01-4.52-28.11-23.98-28.11-17.49,0-25.16,16.12-26.53,28.11h50.51Z"/>
+      </svg>
 </div>
-<div class="infromacion-pelicula-serie">
-    <a href="//ok.ru/videoembed/10396843248235?nochat=1" class="reproducir"><svg class="logo-svg-ch" id="Play" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
-        <path d="M21.4086 9.35258C23.5305 10.5065 23.5305 13.4935 21.4086 14.6474L8.59662 21.6145C6.53435 22.736 4 21.2763 4 18.9671L4 5.0329C4 2.72368 6.53435 1.26402 8.59661 2.38548L21.4086 9.35258Z" fill="#1C274C"/>
-        </svg></a>
-    <a id="compartir" class="compartir-chromcast" href=""><svg class="logo-svg-ch" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M13.803 5.33333C13.803 3.49238 15.3022 2 17.1515 2C19.0008 2 20.5 3.49238 20.5 5.33333C20.5 7.17428 19.0008 8.66667 17.1515 8.66667C16.2177 8.66667 15.3738 8.28596 14.7671 7.67347L10.1317 10.8295C10.1745 11.0425 10.197 11.2625 10.197 11.4872C10.197 11.9322 10.109 12.3576 9.94959 12.7464L15.0323 16.0858C15.6092 15.6161 16.3473 15.3333 17.1515 15.3333C19.0008 15.3333 20.5 16.8257 20.5 18.6667C20.5 20.5076 19.0008 22 17.1515 22C15.3022 22 13.803 20.5076 13.803 18.6667C13.803 18.1845 13.9062 17.7255 14.0917 17.3111L9.05007 13.9987C8.46196 14.5098 7.6916 14.8205 6.84848 14.8205C4.99917 14.8205 3.5 13.3281 3.5 11.4872C3.5 9.64623 4.99917 8.15385 6.84848 8.15385C7.9119 8.15385 8.85853 8.64725 9.47145 9.41518L13.9639 6.35642C13.8594 6.03359 13.803 5.6896 13.803 5.33333Z" />
-        </svg>
-    </a>
 
+<div class="buscador">
+    <input id="Buscador-input" class="buscador-input" type="text" placeholder="Busca tu Pelicula o Serie.." name="" id="">
 </div>
 
-<div class="descrpcion-serie-pelicula">
-    <h5 class="descripcion-descripcion">Descripcion</h5>
-    <p class="descripcion" onclick="cambiarAlto(this)">
-        Años después de presenciar la muerte del venerado héroe Maximus a manos de su tío, Lucius se ve obligado a ingresar al Coliseo después de que su hogar fuera conquistado por los emperadores tiránicos que ahora dirigen Roma con mano de hierro. Con rabia en su corazón y el futuro del Imperio en juego, Lucius debe mirar a su pasado para encontrar fuerza y ​​honor para devolver la gloria de Roma a su pueblo.
-    </p>
-<div class="badges">
-    <p class="duracio-año">2 h 28 min</p>
-    <p class="duracio-año">IMDb 6.6</p>
-    <p class="duracio-año">2024</p>
-    <p class="badges-p">+18</p>
-    <p class="badges-p">HD</p>
-    <p class="badges-p">Latino</p>
+<div class="categorias">
+    <select class="categorias-filtro" id="categorias-filtro">
+        <option value="todas">Filtro  </option>
+        <option value="Accion">Accion  </option>
+
+
+    </select>
 </div>
 
-
-
-
-<div class="mas-informacion">
-    <div class="botones-info">
-    <a id="relacionado" class="active">Relacionado<a>
-    <a id="Detalles" class="inactive">Detalles<a>
-    </div>
-
-<div id="relacionado-opcion">
-
-<div class="coleccion-titulo-boton">
-    <div class="degradado-coleccion"></div>
-    <div class="informacion-coleccion">
-    <p class="titulo-coleccion">Parte de Gladiator Collection</p>
-    <p class="descripcion-coleccion">Incluye Gladiador y Gladiador II</p>
-</div>
-    <a id="ver-coleccion" class="boton-coleccion">Ver Coleccion</a>
-
-</div>
-<div id="colecciones" class="colecciones">
-    <p class="colecciones-p">Coleccion</p>
-    <div class="img-colecciones-div">
-    <a class="a-coleccion" href=""><img class="colecciones-img" src="https://media.themoviedb.org/t/p/w1000_and_h563_face/frr6oKQFw2Py0D48fgnEzYdWs5F.jpg" alt=""></a>
-    <a class="a-coleccion"><img class="colecciones-img" src="https://media.themoviedb.org/t/p/w1000_and_h563_face/oMJBJZ5N4J84Z56B6oYNc77C1wL.jpg" alt=""></a>
+<div class="resultado-peliculas-series">
+    <div data-categoria="Accion" class="pelicula">
+        <a href="Peliculas/Accion/Gladiador-2.html"><img src="https://media.themoviedb.org/t/p/w1000_and_h563_face/oMJBJZ5N4J84Z56B6oYNc77C1wL.jpg" alt=""></a>
+        <h3 class="titulo-pelicula-serie">Gladiador II</h3>
     </div>
 </div>
-</div>
-
-
-    <div id="informacion-opcion">
-    <h5 class="titulos-informacion">Advertencias de contenido</h5>
-        <p class="informacion-descripcion">Violencia, Sangre, Sexo, Contenidos explícitos</p>
-
-    <h5 class="titulos-informacion">Idioma Del Audio</h5>
-    <p class="informacion-descripcion">Español Latinoamerica</p>
-
-    <h5 class="titulos-informacion">Dirección</h5>
-    <p class="informacion-descripcion">Ridley Scott</p>
-
-    <h5 class="titulos-informacion">Elenco</h5>
-    <p class="informacion-descripcion" id="elenco">Paul Mescal, Pedro Pascal, Denzel Washington, Connie Nielsen, Joseph Quinn</p>
-
-    <h5 class="titulos-informacion">Estudio</h5>
-    <p class="informacion-descripcion">Paramount Pictures y Scott Free Productions</p>
-</div>
-
-</div>
-</div>
-
-
 
 <div class="espacio"></div>
 
 <script>
-    function cambiarAlto(elemento) {
-  if (elemento.style.maxHeight) {
-    // Si ya tiene un alto específico, lo reduce
-    elemento.style.maxHeight = null;
-  } else {
-    // Si no, lo expande
-    elemento.style.maxHeight = "200px";
-  }
-}
+document.addEventListener("DOMContentLoaded", function () {
+    const filtroSelect = document.getElementById("categorias-filtro");
+    const peliculas = document.querySelectorAll(".pelicula");
 
-function activarEnlace(activo, inactivo, divActivo, divInactivo) {
-    event.preventDefault();
-    
-    document.getElementById(divActivo).style.display = "block";
-    document.getElementById(divInactivo).style.display = "none";
+    filtroSelect.addEventListener("change", function () {
+        const filtro = filtroSelect.value.toLowerCase(); // Obtiene la categoría seleccionada
 
-    document.getElementById(activo).classList.add("active");
-    document.getElementById(activo).classList.remove("inactive");
+        peliculas.forEach(pelicula => {
+            const categoria = pelicula.getAttribute("data-categoria").toLowerCase(); // Obtiene la categoría de la película
 
-    document.getElementById(inactivo).classList.add("inactive");
-    document.getElementById(inactivo).classList.remove("active");
-}
-
-document.getElementById("relacionado").addEventListener("click", function(event) {
-    activarEnlace("relacionado", "Detalles", "relacionado-opcion", "informacion-opcion");
+            // Si el filtro es "todas" o coincide con la categoría, mostramos la película
+            pelicula.style.display = (filtro === "todas" || categoria === filtro) ? "block" : "none";
+        });
+    });
 });
 
-document.getElementById("Detalles").addEventListener("click", function(event) {
-    activarEnlace("Detalles", "relacionado", "informacion-opcion", "relacionado-opcion");
-});
-
-document.getElementById("compartir").addEventListener("click", async () => {
-            if (navigator.share) {
-                try {
-                    await navigator.share({
-                        title: "Lumea",
-                        text: "Nunca dejes de Lumear, Mira Gladiador 2 en Lumea, Descarga aca: https://lumear.netlify.app/Peliculas/Accion/Gladiador-2.html",
-                        url: window.location.href
-                    });
-                    console.log("Gracias por Invitar a Lumear");
-                } catch (error) {
-                    console.error("Error al compartir:", error);
-                }
+document.getElementById('Buscador-input').addEventListener('input', function() {
+        const searchQuery = this.value.toLowerCase();
+        const peliculas = document.querySelectorAll('.pelicula');
+        
+        peliculas.forEach(function(pelicula) {
+            const titulo = pelicula.querySelector('.titulo-pelicula-serie').textContent.toLowerCase();
+            
+            if (titulo.includes(searchQuery)) {
+                pelicula.style.display = '';
             } else {
-                alert("Tu navegador no soporta la función de compartir.");
+                pelicula.style.display = 'none';
             }
         });
- 
- document.getElementById("ver-coleccion").addEventListener("click", function() {
-    let coleccion = document.getElementById("colecciones");
-
-    if (coleccion.classList.contains("activa")) {
-        coleccion.classList.remove("activa");
-        coleccion.style.display = "none";
-        coleccion.style.margin = "0px -90% 0px";
-    } else {
-        coleccion.classList.add("activa");
-        coleccion.style.display = "block";
-        coleccion.style.margin = "0px 0% 0px";
-    }
-}); 
-
-
+    });
 </script>
-
 </body>
 </html>
