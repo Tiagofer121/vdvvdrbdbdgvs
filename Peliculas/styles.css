@@ -69,12 +69,12 @@ p.badges-p {
     background: #ffffff24;
     border-radius: 7px;
     text-align: center;
-    font-size: .7rem;
+    font-size: .6rem;
 }
 p.duracio-año {
     font-family: 'MiFuente';
     margin: 0px 10px;
-    font-size: .7rem;
+    font-size: .6rem;
 }
 .descrpcion-serie-pelicula {
     width: 90%;
@@ -189,14 +189,13 @@ a.boton-coleccion {
     color: #ffffff;
 }
 .colecciones {
-    width: 90%;
     overflow: auto;
     display: none;
     margin: 0px -90% 0px;
 }
 .colecciones.activa {
     display: flex;
-    margin: 0px 5% 0px;
+    margin: 0px 0px;
 }
 .colecciones-img{
     width: 250px;
