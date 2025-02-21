@@ -83,7 +83,7 @@ a.boton-ver-pelicula-imagen-grande {
     width: fit-content;
     height: fit-content;
     margin: 0px 0px 60px;
-    background: rgb(5 6 24 / 36%);
+    background: #05061866;
     padding: 10px;
     text-decoration: none;
     border-radius: 10px;
@@ -93,9 +93,7 @@ a.boton-ver-pelicula-imagen-grande {
     display: flex;
     align-items: center;
 }
-a.boton-ver-pelicula-imagen-grande:hover {
-    background: rgb(0, 0, 0);
-}
+
 
 svg.play-svg {
     width: 30px;
@@ -105,16 +103,7 @@ svg.play-svg {
 svg.play-svg path {
 stroke: rgb(255, 255, 255);
 }
-.buscador {
-    width: 100%;
-    height: 50px;
-    position: fixed;
-    z-index: 2;
-    display: flex;
-    justify-content: flex-end;
-    margin: 50px 0px 0px 0px;
-    align-items: center;
-}
+
 .peliculas-series {
     margin: 30px 0px 0px 0px;
     width: 100%;
