@@ -21,8 +21,8 @@ a.reproducir {
     backdrop-filter: drop-shadow(2px 4px 6px black);
     text-align: center;
     text-decoration: none;
-    height: 58px;
-    width: 58px;
+    height: 48px;
+    width: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,8 +32,8 @@ a.reproducir {
     border: 1px solid white;
 }
 a.compartir-chromcast {
-    width: 58px;
-    height: 58px;
+    width: 48px;
+    height: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
