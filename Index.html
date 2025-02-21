@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        .login{
+    background-image: url(Fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        }
+    .login-formulario {
+    height: 360px;
+    width: 80%;
+    max-width: 300px;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    background: linear-gradient(286deg, hsl(306.83deg 93.21% 16.74% / 64%), #030c30);
+    position: relative;
+}
+p.usuario-contraseña-p-u {
+    margin: 30px 0px 0px 0px;
+    font-family: 'MiFuente';
+    width: fit-content;;
+}
+p.usuario-contraseña-p {
+    font-family: 'MiFuente';
+    width: fit-content;
+}
+input.usuario-contraseña-input {
+    width: 100%;
+    margin: 20px 0px 25px;
+    background: #7b5ed43d;
+    border: none;
+    height: 40px;
+    border-radius: 10px;
+    outline: none;
+    color: white;
+    text-align: left;
+    padding: 20px;
+    font-family: 'MiFuente';
+}
+input.usuario-contraseña-input-2 {
+    width: 100%;
+    margin: 20px 0px 50px;
+    background: #7b5ed43d;
+    border: none;
+    height: 40px;
+    border-radius: 10px;
+    outline: none;
+    color: white;
+    text-align: left;
+    padding: 20px;
+    font-family: 'MiFuente';
+}
+a.login-button {
+    background: #7b5ed43d;
+    padding: 15px;
+    border-radius: 10px;
+    font-family: 'MiFuente';
+    cursor: pointer;
+} a.login-button:hover {
+    background: #030c30;
+}
+p#user-error {
+    position: absolute;
+    margin: -18px 0px 0px 5px;
+    font-size: .7rem;
+    font-family: 'MiFuente';
+    width: 100%;
+    text-align: justify;
+    color: #7b5ed4;
+}
+p#password-error {
+    position: absolute;
+    margin: -40px 0px 0px 5px;
+    font-size: .7rem;
+    font-family: 'MiFuente';
+    width: 100%;
+    text-align: justify;
+    color: #7b5ed4;
+
+}
+p.pedir-cuenta {
+    margin: 30px 0px 0px 0px;
+    text-align: center;
+    font-family: 'MiFuente';
+    font-size: .7rem;
+}
+a.pedir-cuenta-a {
+    color: #7b5ed4;
+    margin: 0px 0px 0px 5px;
+}
+    </style>
+</head>
+<body>
+    <div class="login" id="login-container">
+        <div class="login-formulario">
+            <p class="usuario-contraseña-p-u">Usuario</p>
+            <input id="username" class="usuario-contraseña-input" required placeholder="Usuario" type="text">
+            <p id="user-error" class="error-message"></p>
+    
+            <p class="usuario-contraseña-p">Contraseña</p>
+            <input id="password" class="usuario-contraseña-input-2" required placeholder="Contraseña" type="password">
+            <p id="password-error" class="error-message"></p>
+    
+            <a class="login-button" onclick="login()">Iniciar Sesión</a>
+    
+            <p class="pedir-cuenta">¿No tienes la cuenta? <a class="pedir-cuenta-a" href="https://wa.me/+59892576114?text=¡Hola!%20Lumea, %20Quiero%20Conseguir%20Una%20Cuenta%20de%20Lumea%20para%20Lumear%20Mi%20Vida.">Pedir Cuenta</a></p>
+        </div>
+    </div>
+    
+    <script>
+        // Verificar si el usuario ya ha iniciado sesión
+        window.onload = function () {
+            if (localStorage.getItem("loggedIn") === "true") {
+                window.location.href = "inicio.html";
+            }
+        };
+    
+        function login() {
+            const correctUsername = "Lumear";
+            const correctPassword = "Luming";
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const userError = document.getElementById("user-error");
+            const passwordError = document.getElementById("password-error");
+    
+            // Limpiar mensajes previos
+            userError.textContent = "";
+            passwordError.textContent = "";
+    
+            let hasError = false;
+    
+            if (username === "") {
+                userError.textContent = "Ingresa un usuario.";
+                hasError = true;
+            } else if (username !== correctUsername) {
+                userError.textContent = "Usuario incorrecto.";
+                hasError = true;
+            }
+    
+            if (password === "") {
+                passwordError.textContent = "Ingresa una contraseña.";
+                hasError = true;
+            } else if (password !== correctPassword) {
+                passwordError.textContent = "Contraseña incorrecta.";
+                hasError = true;
+            }
+    
+            if (!hasError) {
+                // Guardar el estado de inicio de sesión en localStorage
+                localStorage.setItem("loggedIn", "true");
+    
+                // Redirigir a la página de inicio
+                window.location.href = "inicio.html";
+            }
+        }
+    </script>
+    
+</body>
+</html>
