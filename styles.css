@@ -45,7 +45,9 @@ svg.iconos-svg {
     stroke: white;
     cursor: pointer;
 }
-
+path.Logo-menu-svg-path-fubol {
+    fill: white;
+}
 p.opciones-menu-p {
     text-align: center;
     font-family: 'MiFuente';
