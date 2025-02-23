@@ -60,6 +60,7 @@ svg.logo-svg-ch {
     margin: 20px 0px 0px;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 p.badges-p {
     font-family: 'MiFuente';
