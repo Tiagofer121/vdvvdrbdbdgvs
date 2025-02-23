@@ -165,120 +165,6 @@ p.hora-se-juega {
     background: #0a293e;
     margin: 20px 10% 0px;
 }
-.noticias {
-    width: 250px;
-    overflow: hidden;
-    height: fit-content;
-    position: relative;
-    cursor: pointer;
-}
-img.img-noticias {
-    width: 100%;
-    padding: 5px;
-    border-radius: 15px;
-}
-p.titulo-noticia {
-    color: white;
-    width: fit-content;
-    margin: 0px 0px 0px 5px;
-    font-family: 'MiFuente';
-    font-size: .7rem;
-    letter-spacing: .5px;
-}
-#openModal {
-            padding: 10px 20px;
-            font-size: 18px;
-            background: #0424d1;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        /* Estilos del modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-        .todo-noticia {
-            background: linear-gradient(-20deg, #050618 55%, #0424d1);
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            position: relative;
-        }
-
-    .todo-noticias {
-    width: 90%;
-    max-width: 700px;
-    height: auto;
-    text-align: center;
-    margin: 30px 0px 0px 0px;
-}
-
-        .noticia-video-dimensions {
-            width: 100%;
-            height: 40vh;
-            border-radius: 20px;
-        }
-
-        .video-js .vjs-tech {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 20px;
-        }
-
-        .video-js[tabindex="-1"] {
-            outline: 0;
-            border-radius: 20px;
-        }
-
-        p.titulo-noticia {
-            color: white;
-            margin: 20px 0px;
-            font-family: sans-serif;
-            font-weight: 700;
-        }
-
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
-            cursor: pointer;
-            color: white;
-            background: none;
-            border: none;
-            z-index: 2;
-        }
-        p.new {
-    position: absolute;
-    margin: 15px 0px 0px 56%;
-    background: linear-gradient(45deg, var(--Evolum), #0420ba30);    padding: 5px;
-    color: white;
-    border-radius: 10px;
-    width: 92px;
-    height: 28px;
-    font-family: sans-serif;
-    font-size: .7rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
-}
 @media (max-width: 621px) {
     .fondo {
     width: 100%;
@@ -324,26 +210,13 @@ p.titulo-noticia {
 
 <div class="video">
 <video id="video-video" poster="https://wallpapercave.com/wp/wp12076109.jpg" muted autoplay class="video-js vjs-default-skin" controls width="640" height="360">
-    <source src="" type="application/x-mpegURL">
+    <source src="https://zmfzda.fubohd.com/dsports/mono.m3u8?token=9252a7533ba52fa73b704031dce8535dada3945c-a9-1740271543-1740235543" type="application/x-mpegURL">
 </video>
 </div>
 
 <div class="no-hay-partidos">
     <img src="uefa.png" alt="" class="img-uefa">
     <p class="no-hay-partidos-p">No Hay Partidos Disponibles</p>
-</div>
-
-<div class="partidos-contenedor">
-    <p class="posision"> Noticias</p>
-    <div class="partidos-hijo">
-
-        <div id="Noticia-1" class="noticias">
-            <p class="new">New Noticia</p>
-            <img class="img-noticias" src="https://editorial.uefa.com/resources/0296-1d1a1be3721b-8d6d9a72f58b-1000/format/wide1/paris_saint-germain_v_stade_brestois_29_-_uefa_champions_league_2024_25_league_knockout_play-off_second_leg.jpeg" alt="">
-            <p class="titulo-noticia">Golazos en los play-offs </p>
-        </div>
-
-</div>
 </div>
 
 <div class="partidos-contenedor">
@@ -992,18 +865,6 @@ p.titulo-noticia {
 </div>
 </div>
 
-<div id="modal" class="modal">
-    <div class="todo-noticia">
-        <button class="close" id="closeModal">✖</button>
-        <div class="todo-noticias">
-            <video autoplay muted id="noticia-video" class="video-js vjs-default-skin" controls width="640" height="360">
-                <source src="https://vod-uefa-com.akamaized.net/2025/02/20/hdntl=exp=1740355196~acl=%2f*~data=hdntl~hmac=0201b9c10db35052b95a7d538f1c0632cbf91be0c76bdc33248cbd2681a31563/12133313004_UCL___Great_Goals___Knockout_Phase_Play_offs___2024_25_63a5e7-6.m3u8" type="application/x-mpegURL">
-                Tu navegador no soporta la reproducción de videos.
-            </video>
-            <p class="titulo-noticia">Golazos en los play-offs eliminatorios</p>
-        </div>
-    </div>
-</div>
 
 <div class="espacio"></div>
 </div>
@@ -1014,20 +875,30 @@ p.titulo-noticia {
         fluid: true,
         liveui: true
     });
+
     document.getElementById("Noticia-1").addEventListener("click", function() {
-            document.getElementById("modal").style.display = "block";
+            let nuevaPestana = window.open("",  "width=400,height=300");
+            if (nuevaPestana) {
+                nuevaPestana.document.write(`
+                    <html>
+                        <head>
+                            <title>Pestaña Temporal</title>
+                        </head>
+                        <body>
+                            <h2>Esta es una pestaña temporal</h2>
+                            <p>Se cerrará automáticamente en 5 segundos.</p>
+                            <script>
+                                setTimeout(() => window.close(), 5000);
+                            <\/script>
+                        </body>
+                    </html>
+                `);
+                nuevaPestana.document.close();
+            } else {
+                alert("¡La ventana emergente fue bloqueada! Permite las ventanas emergentes para ver la pestaña.");
+            }
         });
-
-        document.getElementById("closeModal").addEventListener("click", function() {
-            document.getElementById("modal").style.display = "none";
-            let video = document.getElementById("noticia-video");
-            video.pause();  // Pausar el video al cerrar
-        });
-        document.addEventListener("DOMContentLoaded", function() {
-    var player = videojs('noticia-video');
-});
-
-
+   
    </script>
 </script>
 </body>
