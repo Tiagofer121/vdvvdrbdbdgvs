@@ -5,13 +5,7 @@
     height: 40vh;
     background: linear-gradient(0deg, var(--Evolum), transparent 68%);
 }
-img.logo {
-    position: absolute;
-    max-width: 300px;
-    width: 150px;
-    min-width: 150px;
-    margin: 0px 0px 0px 10px;
-}
+
 .infromacion-pelicula-serie {
     width: 90%;
     margin: 30px 5% 0px;
