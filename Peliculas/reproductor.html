@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor</title>
+    <style>
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: black;
+}
+video {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 20px;
+    height: 300px;
+    object-fit: cover;
+    outline: none;
+    max-width: 800px;
+}
+    </style>
+</head>
+<body>
+    <video id="videoPlayer" controls>
+        <source id="videoSource" src="" type="video/mp4">
+        Tu navegador no soporta el video.
+    </video>
+
+    <script>
+        // Obtener los datos de la película desde localStorage
+        const pelicula = JSON.parse(localStorage.getItem("pelicula"));
+
+        if (pelicula) {
+            document.getElementById("videoPlayer").poster = pelicula.poster; // Póster en el reproductor
+            document.getElementById("videoSource").src = pelicula.url;
+            document.getElementById("videoPlayer").load(); // Recargar el video con el nuevo enlace
+        } else {
+            alert("No se encontró ninguna película seleccionada.");
+            window.location.href = "index.html"; // Redirigir si no hay datos
+        }
+    </script>
+</body>
+</html>
