@@ -35,6 +35,7 @@ a.compartir-chromcast {
     margin: 0px 0px 0px 2%;
     border-radius: 50%;
     border: 1px solid white;
+    display:none;
 }
 svg.logo-svg-ch {
     width: 30px;
