@@ -7,7 +7,42 @@
     <title>Lumea</title>
 </head>
 <body>   
+<style>
+    .imagen-grande-img {
+    width: 100%;
+    height: 70vh;
+    background-size: cover;
+    background-image: url(https://image.tmdb.org/t/p/original/9X7Im1YuBhyHYVD8r7CAONPJR5k.jpg);
+    background-position-y: top;
+    background-position-x: center;
+}
+a.boton-ver-pelicula-imagen-grande {
+    position: absolute;
+    z-index: 2;
+    color: rgb(255, 255, 255);
+    width: fit-content;
+    height: fit-content;
+    margin: 0px 0px 60px;
+    background: #05061866;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-family: 'MiFuente';
+    font-size: 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    display: none;
+}
+@media (max-width: 621px) {
 
+.imagen-grande-img {
+    background-image: url(https://image.tmdb.org/t/p/original/3M6eiN1IHA1ZOHRhMW30mVyOmR.jpg);
+    background-position-y: top;
+    background-position-x: center;
+}
+}
+</style>
 
 <div class="menu">
         <div class="opciones-texto-svg">
@@ -41,11 +76,11 @@
 </div>
 
 <div class="imagen-grande">
-    <p class="proximamente-nueva-Recien-agregada">Recien agregada</p>
-    <img src="https://media.themoviedb.org/t/p/w1280/gzA2FNiTzHBSkot2ts8Ev8U7NWb.png" alt="" class="logo-img-grande">
-        <a href="Peliculas/Comedia/Un-espia-y-medio.html" class="boton-ver-pelicula-imagen-grande"><svg class="play-svg" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
+    <p class="proximamente-nueva-Recien-agregada">Proximamente</p>
+    <img src="https://media.themoviedb.org/t/p/w1280/6jOqkoBnvfxXgVOF06sRbutqdZT.png" alt="" class="logo-img-grande">
+        <a class="boton-ver-pelicula-imagen-grande"><svg class="play-svg" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
             <path d="M21.4086 9.35258C23.5305 10.5065 23.5305 13.4935 21.4086 14.6474L8.59662 21.6145C6.53435 22.736 4 21.2763 4 18.9671L4 5.0329C4 2.72368 6.53435 1.26402 8.59661 2.38548L21.4086 9.35258Z" />
-            </svg> Reproducir</a>
+            </svg> Proximamente</a>
         <div class="degradado-imagen-grande"></div>
         <div class="imagen-grande-img"></div>
 </div>
