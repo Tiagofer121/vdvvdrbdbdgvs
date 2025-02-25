@@ -4,99 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Categorias</title>
-
-    <style>
-    .logo {
+    <title>Lumea</title>
+</head>
+<body>   
+<style>
+    .imagen-grande-img {
     width: 100%;
+    height: 70vh;
+    background-size: cover;
+    background-image: url(https://media.themoviedb.org/t/p/w1000_and_h563_face/vkeDy6U0d4oW9rh1P8kC1XrmNtF.jpg);
+    background-position-y: top;
+    background-position-x: center;
+}
+a.boton-ver-pelicula-imagen-grande {
+    position: absolute;
+    z-index: 2;
+    color: rgb(255, 255, 255);
+    width: fit-content;
     height: fit-content;
-    margin: 40px 0px 0px 0px;
-}
-    .logo-svg {
-        width: 150px;
-    }
-    .buscador {
-    width: 100%;
-    margin: 30px 0px 0px 0px;
-}
-input.buscador-input {
-    width: 80%;
-    height: 45px;
-    border: none;
-    border-radius: 30px;
-    color: #ffffff;
-    padding: 20px;
-    text-align: left;
-    font-weight: 600;
-    background: linear-gradient(-392deg, #200557, #030c31 60%);
-    outline: none;
-}
-.categorias {
-    width: 100%;
-    margin: 60px 0px 0px 0px;
+    margin: 0px 0px 60px;
+    background: #05061866;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-family: 'MiFuente';
+    font-size: 1rem;
+    text-align: center;
     display: flex;
-    color: white;
+    align-items: center;
+    display: none;
 }
-.categorias-filtro {
-    margin: 0px 0px 0px 5%;
-    width: 100px;
-    height: 40px;
-    color: white;
-    border-radius: 30px;
-    border: none;
-    background: #030c31;
+p.proximamente-nueva-Recien-agregada {
+    position: absolute;
+    z-index: 1;
+    padding: 10px;
+    background: #ffffff2b;
+    color: #ffffff;
     font-family: sans-serif;
     font-weight: 600;
-    outline: none;
+    font-size: .6rem;
+    border-radius: 20px;
+    backdrop-filter: blur(30px);
+    margin-bottom: 60px;
 }
-.resultado-peliculas-series {
-    margin: 20px 2.5% 0px;
-    width: 95%;
-    height: fit-content;
-    overflow: hidden;
-    display: flex;
-    flex-wrap: wrap;
+@media (max-width: 621px) {
+
+.imagen-grande-img {
+/*    background-image: url(https://image.tmdb.org/t/p/original/3M6eiN1IHA1ZOHRhMW30mVyOmR.jpg);*/
+    background-position-y: top;
+    background-position-x: center;
 }
-.pelicula {
-    width: 50%;
-    padding: 5px;
-    color: white;
-    cursor: pointer;
-    max-width: 250px;
 }
-.pelicula img {
-    width: 100%;
-    border-radius: 5px;
-}
-h3.titulo-pelicula-serie {
-    width: fit-content;
-    font-size: .8rem;
-    margin: 10px 0px 0px;
-    font-family: 'MiFuente';
-    color: white;
-    text-decoration: none;
-}
-    </style>
-</head>
-<body>
+</style>
 
 <div class="menu">
         <div class="opciones-texto-svg">
-            <a href="inicio.html"><svg class="iconos-svg" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
+            <svg class="iconos-svg" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
 
                 <path class="Logo-menu-svg-path" d="M22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274" stroke-width="1.5" stroke-linecap="round"></path>
-                </svg></a>
+                </svg>
             <p class="opciones-menu-p">
                 Inicio
             </p>
         </div>
         <div class="opciones-texto-svg">
-            <svg class="iconos-svg" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
+            <a href="categorias.html"><svg class="iconos-svg" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
                 <path class="Logo-menu-svg-path" d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z" />
                 <path class="Logo-menu-svg-path" d="M7.24 13.4297H5.34C3.15 13.4297 2 14.5797 2 16.7597V18.6597C2 20.8497 3.15 21.9997 5.33 21.9997H7.23C9.41 21.9997 10.56 20.8497 10.56 18.6697V16.7697C10.57 14.5797 9.42 13.4297 7.24 13.4297Z" />
                 <path class="Logo-menu-svg-path" d="M6.29 10.58C8.6593 10.58 10.58 8.6593 10.58 6.29C10.58 3.9207 8.6593 2 6.29 2C3.9207 2 2 3.9207 2 6.29C2 8.6593 3.9207 10.58 6.29 10.58Z" />
                 <path class="Logo-menu-svg-path" d="M17.7099 22.0019C20.0792 22.0019 21.9999 20.0812 21.9999 17.7119C21.9999 15.3426 20.0792 13.4219 17.7099 13.4219C15.3406 13.4219 13.4199 15.3426 13.4199 17.7119C13.4199 20.0812 15.3406 22.0019 17.7099 22.0019Z" />
-                </svg>
+                </svg></a>
             <p class="opciones-menu-p">
                 Categorias
             </p>
@@ -111,122 +88,44 @@ h3.titulo-pelicula-serie {
         </div>
 </div>
 
-<div class="logo">
-    <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 403.99 149.91">
-        <defs>
-          <style>
-            .cls-1 {
-                fill: #ffffff;
-                stroke-width: 13px;
-            }
-      
-            .cls-1, .cls-2, .cls-3 {
-              stroke-miterlimit: 10;
-            }
-      
-            .cls-2 {
-              stroke-width: 3px;
-            }
-      
-            .cls-2, .cls-3 {
-              stroke: var(--Evolum);
-              fill: white;
-            }
-            path.cls-4 {
-                fill: white;
-            }
-          </style>
-        </defs>
-        <path class="cls-1" d="M6.5,6.5h0c9.44,0,17.1,7.66,17.1,17.1v44.42c0,31.26,25.34,56.61,56.61,56.61h0v14.35h0c-40.71,0-73.71-33-73.71-73.71V6.5Z"/>
-        <path class="cls-2" d="M148.25,120.3c0,9.83.2,18.48.79,25.94h0c-8.62,0-15.76-6.7-16.3-15.3v-.23h-.41c-4.52,7.66-14.55,17.69-31.45,17.69-14.94,0-32.82-8.26-32.82-41.67v-55.62h0c9.55,0,17.3,7.74,17.3,17.3v35.38c0,18.08,5.5,30.27,21.23,30.27,11.6,0,19.66-8.06,22.8-15.72.98-2.55,1.57-5.7,1.57-8.84v-58.37h0c9.55,0,17.3,7.74,17.3,17.3v51.89Z"/>
-        <path class="cls-4" d="M130.85,76.87c0-9.83-.2-17.89-.79-25.75h0c8.48,0,15.48,6.64,15.91,15.11v.22h.6c5.31-9.04,14.15-17.49,29.88-17.49,12.97,0,22.8,7.86,26.93,19.06h.39c2.95-5.3,6.68-9.43,10.61-12.38,5.7-4.32,11.99-6.68,21.03-6.68,12.58,0,31.25,8.25,31.25,41.27v56.02h-16.9v-53.85c0-18.28-6.68-29.29-20.64-29.29-9.83,0-17.49,7.27-20.44,15.72-.79,2.36-1.38,5.5-1.38,8.65v58.77h-16.9v-57c0-15.14-6.68-26.14-19.85-26.14-10.81,0-18.67,8.65-21.42,17.3-.98,2.55-1.38,5.5-1.38,8.45v57.39h0c-9.34,0-16.9-7.57-16.9-16.9v-52.48Z"/>
-        <path class="cls-4" d="M400.34,144.65c-6.88,0-12.66-5.16-13.44-11.99h-.59c-5.31,7.47-15.53,14.15-29.09,14.15-19.26,0-29.09-13.56-29.09-27.32,0-1.16,0-15.12,9.94-22.79,12.23-9.44,35.75-6.48,45.29-12.58.44-.28,1.97-.7,1.97-1.97,0-7.86-2.16-22.01-21.62-22.01-5.53,0-11.21,1.07-16.32,2.94-4.79,1.75-10.09-.66-11.76-5.48l-.61-1.78c7.86-5.11,19.26-8.45,31.25-8.45,29.09,0,36.17,19.85,36.17,38.92v35.58c0,8.25.39,16.31,1.57,22.8h-3.66ZM385.71,98.05c0-1.08-.87-1.97-1.95-1.98-18.37-.12-38.35,3.61-38.35,21.45,0,11.2,7.47,16.51,16.31,16.51,12.38,0,20.25-7.86,23-15.92.59-1.77.98-3.73.98-5.5v-14.56Z"/>
-        <path class="cls-3" d="M278.75,103.01c.39,23.39,15.33,33.02,32.63,33.02,12.38,0,19.85-2.16,26.34-4.91h0c1.79,7.53-2.99,15.07-10.58,16.59-5.04,1.01-11.07,1.69-18.12,1.69-29.28,0-46.78-19.26-46.78-47.96s16.9-51.3,44.62-51.3c31.05,0,39.31,27.32,39.31,44.81v4.09c0,2.19-1.78,3.97-3.98,3.97h-63.44ZM329.46,90.63c.2-11.01-4.52-28.11-23.98-28.11-17.49,0-25.16,16.12-26.53,28.11h50.51Z"/>
-      </svg>
+<div class="imagen-grande">
+    <p class="proximamente-nueva-Recien-agregada">Proximamente</p>
+    <img src="https://media.themoviedb.org/t/p/w1280/498mpf7DuhKW1wVKQfXuclMy5GP.png" alt="" class="logo-img-grande">
+        <a class="boton-ver-pelicula-imagen-grande"><svg class="play-svg" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
+            <path d="M21.4086 9.35258C23.5305 10.5065 23.5305 13.4935 21.4086 14.6474L8.59662 21.6145C6.53435 22.736 4 21.2763 4 18.9671L4 5.0329C4 2.72368 6.53435 1.26402 8.59661 2.38548L21.4086 9.35258Z" />
+            </svg> Reproducir</a>
+        <div class="degradado-imagen-grande"></div>
+        <div class="imagen-grande-img"></div>
 </div>
 
-<div class="buscador">
-    <input id="Buscador-input" class="buscador-input" type="text" placeholder="Busca tu Pelicula o Serie.." name="" id="">
+<div class="peliculas-series">
+    <p class="titulo-categoria">Accion <svg class="flecha-titulo" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 16 16" fill="none">
+        <path d="M8.1716 8.00003L3.58582 3.41424L6.41424 0.585815L13.8285 8.00003L6.41424 15.4142L3.58582 12.5858L8.1716 8.00003Z" fill="#000000"/>
+        </svg></p>
+    <div class="imagenes-peliculas-series">
+        <a class="link-pelicula" href="Peliculas/Accion/Titanes-del-Pacifico.html"><img class="img-peliculas-series-img" src="https://media.themoviedb.org/t/p/w1000_and_h563_face/4DH0dhKt8N54odhgqbHGnGeiByP.jpg" alt=""></a>
+        <a class="link-pelicula" href="Peliculas/Accion/Gladiador.html"><img class="img-peliculas-series-img" src="https://media.themoviedb.org/t/p/w1000_and_h563_face/frr6oKQFw2Py0D48fgnEzYdWs5F.jpg" alt=""></a>
+        <a class="link-pelicula" href="Peliculas/Accion/Gladiador-2.html"><img class="img-peliculas-series-img" src="https://media.themoviedb.org/t/p/w1000_and_h563_face/oMJBJZ5N4J84Z56B6oYNc77C1wL.jpg" alt=""></a>
+        <a class="link-pelicula" href=""><img class="img-peliculas-series-img" src="" alt=""></a>
+        <a class="link-pelicula" id="Img-ouculta"  href=""><img class="img-peliculas-series-img"src="" alt=""></a>
+        <a class="link-pelicula" id="Img-ouculta" href=""><img class="img-peliculas-series-img" src="" alt=""></a>
+    </div>
 </div>
 
-<div class="categorias">
-    <select class="categorias-filtro" id="categorias-filtro">
-        <option value="todas">Filtro  </option>
-        <option value="Accion">Accion  </option>
-        <option value="Comedia">Comedia </option>
-
-
-    </select>
-</div>
-
-<div class="resultado-peliculas-series">
-    <div data-categoria="Comedia" class="pelicula">
-        <a href="Peliculas/Comedia/son-como-niños-1.html"><img src="https://media.themoviedb.org/t/p/w1000_and_h563_face/9Y25LagiN4jHoZYuXtwgYutximT.jpg" alt=""></a>
-        <h3 class="titulo-pelicula-serie">Son como niños 1</h3>
-    </div>
-    <div data-categoria="Accion" class="pelicula">
-        <a href="Peliculas/Accion/Gladiador-2.html"><img src="https://media.themoviedb.org/t/p/w1000_and_h563_face/oMJBJZ5N4J84Z56B6oYNc77C1wL.jpg" alt=""></a>
-        <h3 class="titulo-pelicula-serie">Gladiador II</h3>
-    </div>
-    <div data-categoria="Accion" class="pelicula">
-        <a href="Peliculas/Accion/Gladiador.html"><img src="https://media.themoviedb.org/t/p/w1000_and_h563_face/frr6oKQFw2Py0D48fgnEzYdWs5F.jpg" alt=""></a>
-        <h3 class="titulo-pelicula-serie">Gladiador</h3>
-    </div>
-    <div data-categoria="Comedia" class="pelicula">
-        <a href="Peliculas/Comedia/son-como-niños-2.html"><img src="https://media.themoviedb.org/t/p/w1000_and_h563_face/lnRk4Vgb3HmWdT3GpekKs5TtYOr.jpg" alt=""></a>
-        <h3 class="titulo-pelicula-serie">Son como niños 2</h3>
-    </div>
-    <div data-categoria="Comedia" class="pelicula">
-        <a href="Peliculas/Comedia/La-balada-de-Buster-Scruggs.html"><img src="https://media.themoviedb.org/t/p/w1000_and_h563_face/iGz47s03QmZ0wojokyQGDTUoDnd.jpg" alt=""></a>
-        <h3 class="titulo-pelicula-serie">La Balada De Buster Scruggs</h3>
-    </div>
-    <div data-categoria="Comedia" class="pelicula">
-        <a href="Peliculas/Comedia/Proyecto-x.html"><img src="https://media.themoviedb.org/t/p/w1000_and_h563_face/bYKZ2woqGSoZccNebobMQMeIyac.jpg" alt=""></a>
-        <h3 class="titulo-pelicula-serie">Proyecto X</h3>
-    </div>
-    <div data-categoria="Comedia" class="pelicula">
-        <a href="Peliculas/Comedia/Superbad.html"><img src="https://media.themoviedb.org/t/p/w1000_and_h563_face/d5BP41uK68d9Yd5RZBIT4S8C7qz.jpg" alt=""></a>
-        <h3 class="titulo-pelicula-serie">SuperBad</h3>
-    </div>
-    <div data-categoria="Comedia" class="pelicula">
-        <a href="Peliculas/Comedia/Un-espia-y-medio.html"><img src="https://media.themoviedb.org/t/p/w1000_and_h563_face/doUpo2j4SYNgVlMaQR1EhDbYNXM.jpg" alt=""></a>
-        <h3 class="titulo-pelicula-serie">Un Espia y Medio</h3>
+<div class="peliculas-series">
+    <p class="titulo-categoria">Comedia <svg class="flecha-titulo" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 16 16" fill="none">
+        <path d="M8.1716 8.00003L3.58582 3.41424L6.41424 0.585815L13.8285 8.00003L6.41424 15.4142L3.58582 12.5858L8.1716 8.00003Z" fill="#000000"/>
+        </svg></p>
+    <div class="imagenes-peliculas-series">
+        <a class="link-pelicula" href="Peliculas/Comedia/son-como-niños-1.html"><img class="img-peliculas-series-img" src="https://media.themoviedb.org/t/p/w1000_and_h563_face/9Y25LagiN4jHoZYuXtwgYutximT.jpg" alt=""></a>
+         <a class="link-pelicula" href="Peliculas/Comedia/La-balada-de-Buster-Scruggs.html"><img class="img-peliculas-series-img" src="https://media.themoviedb.org/t/p/w1000_and_h563_face/iGz47s03QmZ0wojokyQGDTUoDnd.jpg" alt=""></a>
+         <a class="link-pelicula" href="Peliculas/Comedia/Proyecto-x.html"><img class="img-peliculas-series-img" src="https://media.themoviedb.org/t/p/w1000_and_h563_face/bYKZ2woqGSoZccNebobMQMeIyac.jpg" alt=""></a>
+         <a class="link-pelicula" href="Peliculas/Comedia/Superbad.html"><img class="img-peliculas-series-img" src="https://media.themoviedb.org/t/p/w1000_and_h563_face/d5BP41uK68d9Yd5RZBIT4S8C7qz.jpg" alt=""></a>
+         <a class="link-pelicula" id="Img-ouculta" href="Peliculas/Comedia/son-como-niños-2.html"><img class="img-peliculas-series-img" src="https://media.themoviedb.org/t/p/w1000_and_h563_face/lnRk4Vgb3HmWdT3GpekKs5TtYOr.jpg" alt=""></a>
+         <a class="link-pelicula" id="Img-ouculta" href="Peliculas/Comedia/Un-espia-y-medio.html"><img class="img-peliculas-series-img" src="https://media.themoviedb.org/t/p/w1000_and_h563_face/doUpo2j4SYNgVlMaQR1EhDbYNXM.jpg" alt=""></a>
     </div>
 </div>
 
 <div class="espacio"></div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const filtroSelect = document.getElementById("categorias-filtro");
-    const peliculas = document.querySelectorAll(".pelicula");
-
-    filtroSelect.addEventListener("change", function () {
-        const filtro = filtroSelect.value.toLowerCase(); // Obtiene la categoría seleccionada
-
-        peliculas.forEach(pelicula => {
-            const categoria = pelicula.getAttribute("data-categoria").toLowerCase(); // Obtiene la categoría de la película
-
-            // Si el filtro es "todas" o coincide con la categoría, mostramos la película
-            pelicula.style.display = (filtro === "todas" || categoria === filtro) ? "block" : "none";
-        });
-    });
-});
-
-document.getElementById('Buscador-input').addEventListener('input', function() {
-        const searchQuery = this.value.toLowerCase();
-        const peliculas = document.querySelectorAll('.pelicula');
-        
-        peliculas.forEach(function(pelicula) {
-            const titulo = pelicula.querySelector('.titulo-pelicula-serie').textContent.toLowerCase();
-            
-            if (titulo.includes(searchQuery)) {
-                pelicula.style.display = '';
-            } else {
-                pelicula.style.display = 'none';
-            }
-        });
-    });
-</script>
 </body>
 </html>
