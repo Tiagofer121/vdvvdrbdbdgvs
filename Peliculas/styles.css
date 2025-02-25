@@ -163,6 +163,7 @@ div#relacionado-opcion {
 p.titulo-coleccion {
     font-family: 'MiFuente';
     font-size: 1.1rem;
+    text-align: left;
 }
 p.descripcion-coleccion {
     width: fit-content;
