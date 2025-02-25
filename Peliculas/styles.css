@@ -171,7 +171,7 @@ p.descripcion-coleccion {
     font-family: sans-serif;
     font-size: .8rem;
     color: gray;
-    
+     text-align: left;
 }
 a.boton-coleccion {
     position: absolute;
