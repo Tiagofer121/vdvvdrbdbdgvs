@@ -186,6 +186,7 @@ a.boton-coleccion {
     justify-content: center;
     align-items: center;
     color: #ffffff;
+    cursor:pointer;
 }
 .colecciones {
     overflow: auto;
