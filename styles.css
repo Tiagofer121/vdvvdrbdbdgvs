@@ -134,12 +134,7 @@ fill: var(--Evolum);
 #Img-ouculta{
     display: none;
 }
-img.logo-img-grande {
-    position: absolute;
-    width: 400px;
-    margin: 0px 0px 130px 0px;
-    z-index: 1;
-}
+
 .link-pelicula{
     width: min-content;
     width: 24%;
@@ -151,10 +146,5 @@ img.logo-img-grande {
     #Img-ouculta{
         display: block;
     }
-    img.logo-img-grande {
-        position: absolute;
-        width: 300px;
-        margin: 0px 0px 130px 0px;
-        z-index: 1;
-    }
+
   }
