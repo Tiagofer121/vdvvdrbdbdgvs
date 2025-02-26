@@ -207,6 +207,7 @@ p.colecciones-p {
     font-size: larger;
     font-family: 'MiFuente';
     font-size: 1rem;
+    margin: 10px 0px 0px 0px;
 }
 .img-colecciones-div {
     display: flex;
