@@ -47,9 +47,18 @@ img.img-uefa {
     margin: 30px 0px 0px 0px;
 }
 p.no-hay-partidos-p {
+    width: 30ch;
     color: white;
     font-family: 'MiFuente';
     margin: 30px 0px 0px 0px;
+    animation: typing 2.5s steps(20) infinite alternate-reverse;
+    text-wrap: nowrap;
+    overflow: hidden;
+}
+@keyframes typing {
+    from{
+        width: 0ch;
+    }
 }
 .partidos-contenedor {
     width: 90%;
@@ -194,6 +203,10 @@ a {
     width: 15px;
     height: 15px;
 }
+.p-no-hay-partidos-disponibles-div {
+    display: flex;
+    justify-content: center;
+}
 @media (max-width: 621px) {
     .fondo {
     width: 100%;
@@ -266,7 +279,9 @@ a {
 
 <div class="no-hay-partidos">
     <img src="uefa.png" alt="" class="img-uefa">
-    <p class="no-hay-partidos-p">No Hay Partidos Disponibles</p>
+    <div class="p-no-hay-partidos-disponibles-div">
+    <p class="no-hay-partidos-p">No Hay Partidos de champions Disponibles</p>
+</div>
 </div>
 
 <div class="partidos-contenedor">
