@@ -181,8 +181,8 @@ p.hora-se-juega {
     align-items: center;
     justify-content: center;
     background: #000a2a91;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
     backdrop-filter: blur(50px);
 
 }
@@ -207,6 +207,19 @@ a {
 .p-no-hay-partidos-disponibles-div {
     display: flex;
     justify-content: center;
+}
+.partidos-total-todos {
+    max-height: 615px;
+    overflow: hidden;
+    margin: 0px 0px 30px 0px;
+}
+a#boton-resultados {
+    color: white;
+    background: linear-gradient(45deg, #041992, #000a2a);
+    padding: 15px 10px;
+    border-radius: 5px;
+    font-family: 'MiFuente';
+    font-size: .8rem;
 }
 @media (max-width: 621px) {
     .fondo {
@@ -284,6 +297,8 @@ a {
     <p class="no-hay-partidos-p">No Hay Partidos de champions Disponibles</p>
 </div>
 </div>
+
+<div class="partidos-total-todos"  id="Partidos-total-todos">
 
 <div class="partidos-contenedor">
     <p class="posision"> Octavos 4 marzo 2025 | Ida</p>
@@ -930,6 +945,9 @@ a {
 
 </div>
 </div>
+</div>
+
+<a  class="mostrar-todos-resultados" id="boton-resultados">Mostrar todos los resultados</a>
 
 
 <div class="espacio"></div>
@@ -942,6 +960,11 @@ a {
         liveui: true
     });
 
+
+    document.getElementById("boton-resultados").addEventListener("click", function() {
+            let div = document.getElementById("Partidos-total-todos");
+            div.style.maxHeight = div.style.maxHeight === "3000px" ? "615px" : "3000px";
+        });
    </script>
 </script>
 </body>
