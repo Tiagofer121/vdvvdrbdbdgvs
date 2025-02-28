@@ -190,7 +190,7 @@ a {
     text-decoration: none;
 }
 #Partido-vivo {
-    background: linear-gradient(-141deg, hsl(220deg 54.15% 40.2%) 30%, hsl(56.18deg 79.72% 42.55%));
+    background: linear-gradient(-141deg, hsl(216.22deg 76.55% 28.43%) 22%, hsl(40.85deg 82.46% 33.53%));
     position: relative;
     margin: 0px;
 }
@@ -198,7 +198,7 @@ a {
     width: 15px;
     height: 15px;
     position: absolute;
-    margin: 0px 80%;
+    margin: 0px 85%;
 }
 .img-competencia img {
     width: 15px;
@@ -267,21 +267,21 @@ a#boton-resultados {
 <div class="fondo">
 
 <div class="notificaciones">
-    <a href="go:vivo" ><div class="partidos-proximos" id="Partido-vivo">
+    <a id="partido-vivo-a"><div class="partidos-proximos" id="Partido-vivo">
         <div class="partidos-proximos-hijo">
-            <div class="img-competencia"><img src="https://image-service.onefootball.com/transform?w=256&dpr=2&image=https://images.onefootball.com/icons/leagueColoredCompetition/128/111.png" alt=""></div>
+            <div class="img-competencia"><img src="https://image-service.onefootball.com/transform?w=256&dpr=2&image=https://images.onefootball.com/icons/leagueColoredCompetition/128/83.png" alt=""></div>
             <div class="equipos-partido-proximo">
-            <img src="https://image-service.onefootball.com/transform?w=22&h=22&dpr=2&image=https%253A%252F%252Fimages.onefootball.com%252Ficons%252Fteams%252F164%252F2337.png" alt="" class="logo-partidos-proximo">
-           <p class="nombre-equipo-partido-proximo">Al-Orobah</p>
+            <img src="https://image-service.onefootball.com/transform?w=22&h=22&dpr=2&image=https%253A%252F%252Fimages.onefootball.com%252Ficons%252Fteams%252F164%252F1696.png" alt="" class="logo-partidos-proximo">
+           <p class="nombre-equipo-partido-proximo">Boca Juniors</p>
             </div>
             <div class="equipos-partido-proximo">
-                <img src="https://image-service.onefootball.com/transform?w=22&h=22&dpr=2&image=https%253A%252F%252Fimages.onefootball.com%252Ficons%252Fteams%252F164%252F2329.png" alt="" class="logo-partidos-proximo">
-               <p class="nombre-equipo-partido-proximo">AL Nassr FC</p>
+                <img src="https://image-service.onefootball.com/transform?w=22&h=22&dpr=2&image=https%253A%252F%252Fimages.onefootball.com%252Ficons%252Fteams%252F164%252F1993.png" alt="" class="logo-partidos-proximo">
+               <p class="nombre-equipo-partido-proximo">Rosario Central</p>
                 </div>
         </div>
         <div class="partidos-proximos-hijo-linea">
             <div class="linea-tiempo"></div>
-            <p class="hora-se-juega">Vivo</p>
+            <p class="hora-se-juega" id="hora-se-juega">20:00</p>
         </div>
 
       </div>  </a>
@@ -289,7 +289,7 @@ a#boton-resultados {
 
 <div class="video">
 <video id="video-video" poster="https://wallpapercave.com/wp/wp12076109.jpg" muted autoplay class="video-js vjs-default-skin" controls width="640" height="360">
-    <source src="https://zmfzda.fubohd.com/dsports/mono.m3u8?token=9252a7533ba52fa73b704031dce8535dada3945c-a9-1740271543-1740235543" type="application/x-mpegURL">
+    <source src="" type="application/x-mpegURL">
 </video>
 </div>
 
@@ -967,6 +967,85 @@ a#boton-resultados {
             let div = document.getElementById("Partidos-total-todos");
             div.style.maxHeight = div.style.maxHeight === "3000px" ? "615px" : "3000px";
         });
+
+// Fecha y hora de destino para agregar el href (por ejemplo, el 28 de febrero a las 15:00)
+const targetDateAdd = new Date('2025-02-28T20:00:00');
+
+// Fecha y hora de destino para eliminar el href (por ejemplo, el 28 de febrero a las 16:00)
+const targetDateRemove = new Date('2025-02-28T21:50:00');
+
+// Verificar si ya hay un temporizador activo al regresar a la página
+let startTime = localStorage.getItem("startTime");
+let targetTimeAdd = localStorage.getItem("targetTimeAdd");
+let targetTimeRemove = localStorage.getItem("targetTimeRemove");
+
+if (startTime && targetTimeAdd && targetTimeRemove) {
+  // Calcular cuánto tiempo queda hasta agregar y eliminar el href
+  let remainingTimeAdd = targetTimeAdd - Date.now();
+  let remainingTimeRemove = targetTimeRemove - Date.now();
+
+  if (remainingTimeAdd > 0) {
+    // Hay tiempo restante para agregar el href
+    setTimeout(addLink, remainingTimeAdd);
+  } else {
+    // El tiempo para agregar el href ya ha pasado
+    addLink();
+  }
+
+  if (remainingTimeRemove > 0) {
+    // Hay tiempo restante para eliminar el href
+    setTimeout(removeLink, remainingTimeRemove);
+  } else {
+    // El tiempo para eliminar el href ya ha pasado
+    removeLink();
+  }
+} else {
+  // No hay temporizador activo, establecer uno nuevo
+  startTime = Date.now();
+  targetTimeAdd = targetDateAdd.getTime();
+  targetTimeRemove = targetDateRemove.getTime();
+
+  localStorage.setItem("startTime", startTime);
+  localStorage.setItem("targetTimeAdd", targetTimeAdd);
+  localStorage.setItem("targetTimeRemove", targetTimeRemove);
+
+  // Calcular cuánto tiempo queda hasta agregar el href
+  setTimeout(addLink, targetTimeAdd - Date.now());
+  // Calcular cuánto tiempo queda hasta eliminar el href
+  setTimeout(removeLink, targetTimeRemove - Date.now());
+}
+
+function addLink() {
+  // Agregar el href al enlace con el id "partido-vivo-a"
+  var link = document.getElementById("partido-vivo-a");
+  link.setAttribute("href", "go:vivo");
+
+  // Cambiar el texto del <p> con el id "hora-se-juega"
+  var horaTexto = document.getElementById("hora-se-juega");
+  horaTexto.textContent = "En Vivo";
+
+  // Limpiar los datos de localStorage
+  localStorage.removeItem("startTime");
+  localStorage.removeItem("targetTimeAdd");
+  localStorage.removeItem("targetTimeRemove");
+}
+
+function removeLink() {
+  // Eliminar el href del enlace con el id "partido-vivo-a"
+  var link = document.getElementById("partido-vivo-a");
+  link.removeAttribute("href");
+
+  // Cambiar el texto del <p> con el id "hora-se-juega"
+  var horaTexto = document.getElementById("hora-se-juega");
+  horaTexto.textContent = "Finalizado";
+
+  // Limpiar los datos de localStorage
+  localStorage.removeItem("startTime");
+  localStorage.removeItem("targetTimeAdd");
+  localStorage.removeItem("targetTimeRemove");
+}
+
+
    </script>
 </script>
 </body>
