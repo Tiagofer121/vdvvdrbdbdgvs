@@ -158,12 +158,15 @@ img.logo-partidos-proximo {
     background: white;
     margin: 0px 10px 0px 0px;
 }
+#hora-se-juega {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-family: 'MiFuente';
+    padding: 4px;
+    background: #f84742;
+    border-radius: 5px;
+}
 p.hora-se-juega {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: #ffffff;
     font-size: 1.1rem;
     font-family: 'MiFuente';
@@ -180,7 +183,7 @@ p.hora-se-juega {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #000a2a91;
+    background: #000000ab;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
     backdrop-filter: blur(50px);
@@ -190,15 +193,17 @@ a {
     text-decoration: none;
 }
 #Partido-vivo {
-    background: linear-gradient(-141deg, hsl(216.22deg 76.55% 28.43%) 22%, hsl(40.85deg 82.46% 33.53%));
+    background: linear-gradient(-141deg, #000000 60%, hsl(2.27deg 95.85% 62.16%));
     position: relative;
     margin: 0px;
+    filter: none;
 }
 .img-competencia {
-    width: 15px;
+    width: 85%;
     height: 15px;
     position: absolute;
-    margin:0px 0px 0px 80%;
+    display: flex;
+    justify-content: flex-end;
 }
 .img-competencia img {
     width: 15px;
@@ -269,26 +274,26 @@ a#boton-resultados {
 <div class="notificaciones">
     <a id="partido-vivo-a"><div class="partidos-proximos" id="Partido-vivo">
         <div class="partidos-proximos-hijo">
-            <div class="img-competencia"><img src="https://image-service.onefootball.com/transform?w=256&dpr=2&image=https://images.onefootball.com/icons/leagueColoredCompetition/128/83.png" alt=""></div>
+            <div class="img-competencia"><img src="https://image-service.onefootball.com/transform?w=48&dpr=2&image=https://images.onefootball.com/icons/leagueColoredCompetition/64/10.png" alt=""></div>
             <div class="equipos-partido-proximo">
-            <img src="https://image-service.onefootball.com/transform?w=22&h=22&dpr=2&image=https%253A%252F%252Fimages.onefootball.com%252Ficons%252Fteams%252F164%252F1696.png" alt="" class="logo-partidos-proximo">
-           <p class="nombre-equipo-partido-proximo">Boca Juniors</p>
+            <img src="https://image-service.onefootball.com/transform?w=22&h=22&dpr=2&image=https%253A%252F%252Fimages.onefootball.com%252Ficons%252Fteams%252F164%252F691.png" alt="" class="logo-partidos-proximo">
+           <p class="nombre-equipo-partido-proximo">Real Betis</p>
             </div>
             <div class="equipos-partido-proximo">
-                <img src="https://image-service.onefootball.com/transform?w=22&h=22&dpr=2&image=https%253A%252F%252Fimages.onefootball.com%252Ficons%252Fteams%252F164%252F1993.png" alt="" class="logo-partidos-proximo">
-               <p class="nombre-equipo-partido-proximo">Rosario Central</p>
+                <img src="https://image-service.onefootball.com/transform?w=22&h=22&dpr=2&image=https%253A%252F%252Fimages.onefootball.com%252Ficons%252Fteams%252F164%252F26.png" alt="" class="logo-partidos-proximo">
+               <p class="nombre-equipo-partido-proximo">Real madrid</p>
                 </div>
         </div>
         <div class="partidos-proximos-hijo-linea">
             <div class="linea-tiempo"></div>
-            <p class="hora-se-juega" id="hora-se-juega">20:00</p>
+            <p class="hora-se-juega" id="hora-se-juega">14:30</p>
         </div>
 
       </div>  </a>
 </div>
 
 <div class="video">
-<video id="video-video" poster="https://wallpapercave.com/wp/wp12076109.jpg" muted autoplay class="video-js vjs-default-skin" controls width="640" height="360">
+<video id="video-video"  muted autoplay class="video-js vjs-default-skin" controls width="640" height="360">
     <source src="" type="application/x-mpegURL">
 </video>
 </div>
@@ -969,10 +974,10 @@ a#boton-resultados {
         });
 
 // Fecha y hora de destino para agregar el href (por ejemplo, el 28 de febrero a las 15:00)
-const targetDateAdd = new Date('2025-02-28T20:00:00');
+const targetDateAdd = new Date('2025-02-29T14:30:00');
 
 // Fecha y hora de destino para eliminar el href (por ejemplo, el 28 de febrero a las 16:00)
-const targetDateRemove = new Date('2025-02-28T21:50:00');
+const targetDateRemove = new Date('2025-02-29T17:10:00');
 
 // Verificar si ya hay un temporizador activo al regresar a la página
 let startTime = localStorage.getItem("startTime");
@@ -1037,7 +1042,7 @@ function removeLink() {
 
   // Cambiar el texto del <p> con el id "hora-se-juega"
   var horaTexto = document.getElementById("hora-se-juega");
-  horaTexto.textContent = "Finalizado";
+  horaTexto.textContent = "Finaliz.";
 
   // Limpiar los datos de localStorage
   localStorage.removeItem("startTime");
