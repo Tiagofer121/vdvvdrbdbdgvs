@@ -973,34 +973,31 @@ a#boton-resultados {
             div.style.maxHeight = div.style.maxHeight === "3000px" ? "615px" : "3000px";
         });
 
-// Hora para agregar el enlace (Ejemplo: a las 16:03)
+// Fecha y hora para agregar el enlace (YYYY, MM (0-11), DD, HH, MM)
+const addYear = 2025;
+const addMonth = 2;  // Marzo (los meses en JS van de 0 a 11)
+const addDay = 2;
 const addHour = 16;
 const addMinute = 45;
 
-// Hora para eliminar el enlace (Ejemplo: a las 18:30)
+// Fecha y hora para eliminar el enlace (YYYY, MM (0-11), DD, HH, MM)
+const removeYear = 2025;
+const removeMonth = 2; // Marzo
+const removeDay = 2;
 const removeHour = 18;
 const removeMinute = 50;
 
-function getNextTime(hour, minute) {
-  const now = new Date();
-  let target = new Date();
-  target.setHours(hour, minute, 0, 0);
-
-  // Si la hora ya pasó hoy, se programa para mañana
-  if (target.getTime() < now.getTime()) {
-    target.setDate(target.getDate() + 1);
-  }
-
-  return target.getTime();
+function getSpecificTime(year, month, day, hour, minute) {
+  return new Date(year, month, day, hour, minute, 0).getTime();
 }
 
 // Obtener tiempos de ejecución
-const targetTimeAdd = getNextTime(addHour, addMinute);
-const targetTimeRemove = getNextTime(removeHour, removeMinute);
+const targetTimeAdd = getSpecificTime(addYear, addMonth, addDay, addHour, addMinute);
+const targetTimeRemove = getSpecificTime(removeYear, removeMonth, removeDay, removeHour, removeMinute);
 
-console.log("Hora actual:", new Date().toLocaleTimeString());
-console.log("Hora programada para agregar enlace:", new Date(targetTimeAdd).toLocaleTimeString());
-console.log("Hora programada para eliminar enlace:", new Date(targetTimeRemove).toLocaleTimeString());
+console.log("Hora actual:", new Date().toLocaleString());
+console.log("Hora programada para agregar enlace:", new Date(targetTimeAdd).toLocaleString());
+console.log("Hora programada para eliminar enlace:", new Date(targetTimeRemove).toLocaleString());
 
 // Calcular tiempo restante
 const timeUntilAdd = targetTimeAdd - Date.now();
@@ -1009,9 +1006,15 @@ const timeUntilRemove = targetTimeRemove - Date.now();
 console.log("Tiempo restante para agregar enlace:", timeUntilAdd / 1000, "segundos");
 console.log("Tiempo restante para eliminar enlace:", timeUntilRemove / 1000, "segundos");
 
-// Programar las acciones
-setTimeout(addLink, timeUntilAdd);
-setTimeout(removeLink, timeUntilRemove);
+// Si la hora de agregar ya pasó pero la de eliminar no, se activa el enlace de inmediato
+if (timeUntilAdd <= 0 && timeUntilRemove > 0) {
+  console.log("La hora de agregar ya pasó, activando enlace inmediatamente.");
+  addLink();
+}
+
+// Programar las acciones solo si el tiempo es válido
+if (timeUntilAdd > 0) setTimeout(addLink, timeUntilAdd);
+if (timeUntilRemove > 0) setTimeout(removeLink, timeUntilRemove);
 
 function addLink() {
   console.log("Ejecutando addLink()");
@@ -1046,6 +1049,7 @@ function removeLink() {
     console.error("No se encontró #hora-se-juega");
   }
 }
+
 
 
 
