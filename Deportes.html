@@ -973,82 +973,80 @@ a#boton-resultados {
             div.style.maxHeight = div.style.maxHeight === "3000px" ? "615px" : "3000px";
         });
 
-// Fecha y hora de destino para agregar el href (por ejemplo, el 28 de febrero a las 15:00)
-const targetDateAdd = new Date('2025-02-30T16:45:00');
+// Hora para agregar el enlace (Ejemplo: a las 16:03)
+const addHour = 16;
+const addMinute = 45;
 
-// Fecha y hora de destino para eliminar el href (por ejemplo, el 28 de febrero a las 16:00)
-const targetDateRemove = new Date('2025-02-30T18:30:00');
+// Hora para eliminar el enlace (Ejemplo: a las 18:30)
+const removeHour = 18;
+const removeMinute = 50;
 
-// Verificar si ya hay un temporizador activo al regresar a la página
-let startTime = localStorage.getItem("startTime");
-let targetTimeAdd = localStorage.getItem("targetTimeAdd");
-let targetTimeRemove = localStorage.getItem("targetTimeRemove");
+function getNextTime(hour, minute) {
+  const now = new Date();
+  let target = new Date();
+  target.setHours(hour, minute, 0, 0);
 
-if (startTime && targetTimeAdd && targetTimeRemove) {
-  // Calcular cuánto tiempo queda hasta agregar y eliminar el href
-  let remainingTimeAdd = targetTimeAdd - Date.now();
-  let remainingTimeRemove = targetTimeRemove - Date.now();
-
-  if (remainingTimeAdd > 0) {
-    // Hay tiempo restante para agregar el href
-    setTimeout(addLink, remainingTimeAdd);
-  } else {
-    // El tiempo para agregar el href ya ha pasado
-    addLink();
+  // Si la hora ya pasó hoy, se programa para mañana
+  if (target.getTime() < now.getTime()) {
+    target.setDate(target.getDate() + 1);
   }
 
-  if (remainingTimeRemove > 0) {
-    // Hay tiempo restante para eliminar el href
-    setTimeout(removeLink, remainingTimeRemove);
-  } else {
-    // El tiempo para eliminar el href ya ha pasado
-    removeLink();
-  }
-} else {
-  // No hay temporizador activo, establecer uno nuevo
-  startTime = Date.now();
-  targetTimeAdd = targetDateAdd.getTime();
-  targetTimeRemove = targetDateRemove.getTime();
-
-  localStorage.setItem("startTime", startTime);
-  localStorage.setItem("targetTimeAdd", targetTimeAdd);
-  localStorage.setItem("targetTimeRemove", targetTimeRemove);
-
-  // Calcular cuánto tiempo queda hasta agregar el href
-  setTimeout(addLink, targetTimeAdd - Date.now());
-  // Calcular cuánto tiempo queda hasta eliminar el href
-  setTimeout(removeLink, targetTimeRemove - Date.now());
+  return target.getTime();
 }
 
+// Obtener tiempos de ejecución
+const targetTimeAdd = getNextTime(addHour, addMinute);
+const targetTimeRemove = getNextTime(removeHour, removeMinute);
+
+console.log("Hora actual:", new Date().toLocaleTimeString());
+console.log("Hora programada para agregar enlace:", new Date(targetTimeAdd).toLocaleTimeString());
+console.log("Hora programada para eliminar enlace:", new Date(targetTimeRemove).toLocaleTimeString());
+
+// Calcular tiempo restante
+const timeUntilAdd = targetTimeAdd - Date.now();
+const timeUntilRemove = targetTimeRemove - Date.now();
+
+console.log("Tiempo restante para agregar enlace:", timeUntilAdd / 1000, "segundos");
+console.log("Tiempo restante para eliminar enlace:", timeUntilRemove / 1000, "segundos");
+
+// Programar las acciones
+setTimeout(addLink, timeUntilAdd);
+setTimeout(removeLink, timeUntilRemove);
+
 function addLink() {
-  // Agregar el href al enlace con el id "partido-vivo-a"
-  var link = document.getElementById("partido-vivo-a");
-  link.setAttribute("href", "partido.html");
+  console.log("Ejecutando addLink()");
+  const link = document.getElementById("partido-vivo-a");
+  if (link) {
+    link.setAttribute("href", "partido.html");
+  } else {
+    console.error("No se encontró #partido-vivo-a");
+  }
 
-  // Cambiar el texto del <p> con el id "hora-se-juega"
-  var horaTexto = document.getElementById("hora-se-juega");
-  horaTexto.textContent = "En Vivo";
-
-  // Limpiar los datos de localStorage
-  localStorage.removeItem("startTime");
-  localStorage.removeItem("targetTimeAdd");
-  localStorage.removeItem("targetTimeRemove");
+  const horaTexto = document.getElementById("hora-se-juega");
+  if (horaTexto) {
+    horaTexto.textContent = "En Vivo";
+  } else {
+    console.error("No se encontró #hora-se-juega");
+  }
 }
 
 function removeLink() {
-  // Eliminar el href del enlace con el id "partido-vivo-a"
-  var link = document.getElementById("partido-vivo-a");
-  link.removeAttribute("href");
+  console.log("Ejecutando removeLink()");
+  const link = document.getElementById("partido-vivo-a");
+  if (link) {
+    link.removeAttribute("href");
+  } else {
+    console.error("No se encontró #partido-vivo-a");
+  }
 
-  // Cambiar el texto del <p> con el id "hora-se-juega"
-  var horaTexto = document.getElementById("hora-se-juega");
-  horaTexto.textContent = "Finaliz.";
-
-  // Limpiar los datos de localStorage
-  localStorage.removeItem("startTime");
-  localStorage.removeItem("targetTimeAdd");
-  localStorage.removeItem("targetTimeRemove");
+  const horaTexto = document.getElementById("hora-se-juega");
+  if (horaTexto) {
+    horaTexto.textContent = "Finaliz.";
+  } else {
+    console.error("No se encontró #hora-se-juega");
+  }
 }
+
 
 
    </script>
