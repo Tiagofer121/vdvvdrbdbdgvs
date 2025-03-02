@@ -13,23 +13,10 @@
 .fondo {
     width: 100%;
     height: 100vh;
-    background: linear-gradient(-20deg, var(--Evolum) 55%, #0424d1);
+    overflow-x: hidden;
 }
 
-.video {
-    width: 100%;
-    height: 50vh;
-    margin: 0px 0px 0px 0px;
-}
-video#video-video_html5_api {
-    height: 50vh;
-    object-fit: cover;
-    width: 100%;
-}
-div#video-video {
-    width: 100%;
-    height: 50vh;
-}
+
 .infortmacion {
     margin: 20px 2.5% 0px 2.5%;
     padding: 20px;
@@ -105,6 +92,68 @@ p.ubicacion {
 span.span-ubicacion {
     font-weight: 100;
 }
+.videos-relacionados {
+    width: 95%;
+    height: 250px;
+    margin: 0px 2.5%;
+    overflow: hidden;
+}
+p.videos-relacionados-p {
+    text-align: left;
+    color: white;
+    margin: 15px 0px;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+.noticia-videos {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+}
+.noticia-videos a {
+    padding: 5px;
+    position: relative;
+}
+p.tiempo-video {
+    position: absolute;
+    z-index: 2;
+    color: white;
+    margin: 5px;
+    padding: 5px;
+    background: #00000080;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: .8rem;
+}
+img.noticia-video-img {
+    width: 260px;
+    border-radius: 5px;
+}
+p.titulo-video {
+    text-align: left;
+    color: white;
+    text-decoration: none;
+    font-size: .7rem;
+    font-family: sans-serif;
+    padding: 5px 0px;
+}
+.boton-ver-partido {
+    width: 95%;
+    display: flex;
+    margin: 40px 2.5%;
+}
+a.ver-partido {
+    background: linear-gradient(45deg, #431724, #ff004e);
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: 600;
+    border-radius: 5px;
+    letter-spacing: 1px;
+}
 @media (max-width: 621px) {
 }
 
@@ -116,33 +165,37 @@ span.span-ubicacion {
 
 <div class="fondo">
 <div class="video">
-<video id="video-video"  muted autoplay class="video-js vjs-default-skin" controls width="640" height="360">
-    <source src="https://24a.pricesaskeloadsc.com/tycinternacional/tracks-v1a1/mono.m3u8?token=7850e35d745eac58ce1c21254855dc64bf4f7bce-ea-1740899220-1740866820" type="application/x-mpegURL">
+<video id="video-video" poster="https://media.tycsports.com/files/2025/02/28/817343/milan-vs-lazio-en-vivo-como-llegan-al-partido_862x485.webp"  autoplay class="video-js vjs-default-skin" controls width="640" height="360">
+    <source src="https://cos1.pricesaskeloadsc.com/espn2/tracks-v1a1/mono.m3u8?token=6f8025a23333c62139030c9867e8c8f0c6b61806-55-1740963584-1740931184" type="application/x-mpegURL">
 </video>
+</div>
+
+<div class="boton-ver-partido">
+<a href="#" onclick="cambiarVideo('https://cos1.pricesaskeloadsc.com/espn2/tracks-v1a1/mono.m3u8?token=6f8025a23333c62139030c9867e8c8f0c6b61806-55-1740963584-1740931184')" class="ver-partido">Ver Partido</a>
 </div>
 
 <div class="infortmacion">
     <div class="arriba">
         <div class="escudos-nombres">
             <div class="equipos">
-                <img src="https://image-service.onefootball.com/transform?w=22&h=22&dpr=2&image=https%253A%252F%252Fimages.onefootball.com%252Ficons%252Fteams%252F164%252F1822.png" alt="" class="escudo">
-                <p class="nombre-club">Unión de Santa Fe</p>
+                <img src="https://image-service.onefootball.com/transform?w=128&dpr=2&image=https://images.onefootball.com/icons/teams/164/23.png" alt="" class="escudo">
+                <p class="nombre-club">Milán</p>
             </div>
             <div class="equipos">
-                <img src="https://image-service.onefootball.com/transform?w=22&h=22&dpr=2&image=https%253A%252F%252Fimages.onefootball.com%252Ficons%252Fteams%252F164%252F1991.png" alt="" class="escudo">
-                <p class="nombre-club">Gimnasia La Plata</p>
+                <img src="https://image-service.onefootball.com/transform?w=128&dpr=2&image=https://images.onefootball.com/icons/teams/164/139.png" alt="" class="escudo">
+                <p class="nombre-club">Lazio</p>
             </div>
         </div>
         <div class="linea"></div>
         <div class="fecha-tiempo">
             <div class="p-contenedor">
-                <p class="tiempo">hoy <br> 21:30</p>
+                <p class="tiempo">hoy <br> 16:45</p>
             </div>
         </div>
     </div>
     <div class="abajo">
-        <img src="https://image-service.onefootball.com/transform?w=48&dpr=2&image=https://images.onefootball.com/icons/leagueColoredCompetition/64/83.png" alt="" class="escudo">
-        <p class="nombre-liga">Liga Profesional Argentina Apertura</p>
+        <img src="https://image-service.onefootball.com/transform?w=128&dpr=2&image=https://images.onefootball.com/icons/leagueColoredCompetition/128/13.png" alt="" class="escudo">
+        <p class="nombre-liga">Serie A</p>
     </div>
 </div>
 
@@ -152,11 +205,25 @@ span.span-ubicacion {
     <path fill="#F3F4F5" d="M10.0002 10c.9204 0 1.6666-.7462 1.6666-1.6667 0-.9204-.7462-1.6666-1.6666-1.6666-.9205 0-1.6667.7462-1.6667 1.6666 0 .9205.7462 1.6667 1.6667 1.6667z"/>
   </svg>
 </div>
-<p class="ubicacion">Estadio <br> <span class="span-ubicacion">15 de Abril</span></p>
+<p class="ubicacion">Estadio <br> <span class="span-ubicacion">Stadio Giuseppe Meazza</span></p>
 
 </div>
 
-
+<div class="videos-relacionados">
+    <p class="videos-relacionados-p">Videos relacionados</p>
+    <div class="noticia-videos">
+<a href="#" onclick="cambiarVideo('https://videos-cloudfront-usp.jwpsrv.com/67c54926_690a8cb7f5e095d1a2f2ed81ad0ffd4d2e1645de/sites/unouN4ju/media/B9MK4BPV/versions/TLCAGGg3/manifest.ism/manifest-audio_0_5lfuFo8w_u7tZmGGj=112016-video_0_5lfuFo8w_A2WXkoaR=5077051.m3u8')">
+    <p class="tiempo-video">01:32</p>
+    <img src="https://image-service.onefootball.com/transform?w=190&h=107&dpr=2&image=https%253A%252F%252Fcdn.jwplayer.com%252Fv2%252Fmedia%252FB9MK4BPV%252Fposter.jpg%253Fwidth%253D720" alt="" class="noticia-video-img">
+    <p class="titulo-video">Los mejores goles de la Lazio contra el AC Milan</p>
+</a>
+<a href="#" onclick="cambiarVideo('https://videos-cloudfront-usp.jwpsrv.com/67c55102_be8a1b7835931bdd7e762a66bff0b937997e070c/sites/pLhE9KGt/media/wOpniP4o/versions/rqzjXpup/manifest.ism/manifest-audio_0_G8xM4wMw_jg0wKpyv=112046-video_0_G8xM4wMw_DYXd7Kdg=4581727.m3u8')">
+    <p class="tiempo-video">00:30</p>
+    <img src="https://image-service.onefootball.com/transform?w=190&h=107&dpr=2&image=https%253A%252F%252Fcdn.jwplayer.com%252Fv2%252Fmedia%252FwOpniP4o%252Fposter.jpg%253Fwidth%253D720" alt="" class="noticia-video-img">
+    <p class="titulo-video">El decisivo gol de Santi Giménez contra el Hellas Verona</p>
+</a>
+</div>
+</div>
 </div>
 
 
@@ -166,8 +233,12 @@ span.span-ubicacion {
         liveui: true
     });
 
+    var player = videojs('video');
 
-
+    function cambiarVideo(nuevoSrc) {
+        player.src({ src: nuevoSrc, type: 'application/x-mpegURL' });
+        player.play();
+    }
 
    </script>
 </script>
