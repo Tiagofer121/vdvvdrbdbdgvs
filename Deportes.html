@@ -180,7 +180,7 @@ p.hora-se-juega {
 .notificaciones {
     width: 100%;
     height: 130px;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     background: #000000ab;
@@ -301,17 +301,19 @@ a#boton-resultados {
 <div class="no-hay-partidos">
     <img src="uefa.png" alt="" class="img-uefa">
     <div class="p-no-hay-partidos-disponibles-div">
-    <p class="no-hay-partidos-p">No Hay Partidos de champions Disponibles</p>
+    <p class="no-hay-partidos-p">4 Partidos Disponibles Hoy</p>
 </div>
 </div>
 
 <div class="partidos-total-todos"  id="Partidos-total-todos">
 
+
+    
 <div class="partidos-contenedor">
-    <p class="posision"> Octavos 4 marzo 2025 | Ida</p>
+    <p class="posision"> En Vivo | Hoy</p>
     <div class="partidos-hijo">
 
-      <div class="partidos-proximos">
+      <a href="partido.html"><div class="partidos-proximos">
         <div class="partidos-proximos-hijo">
             <div class="equipos-partido-proximo">
             <img src="https://img.uefa.com/imgml/TP/teams/logos/100x100/50043.png" alt="" class="logo-partidos-proximo">
@@ -327,7 +329,7 @@ a#boton-resultados {
             <p class="hora-se-juega">14:45</p>
         </div>
 
-      </div>  
+      </div></a>
 
       <div class="partidos-proximos">
         <div class="partidos-proximos-hijo">
@@ -1006,26 +1008,34 @@ const timeUntilRemove = targetTimeRemove - Date.now();
 console.log("Tiempo restante para agregar enlace:", timeUntilAdd / 1000, "segundos");
 console.log("Tiempo restante para eliminar enlace:", timeUntilRemove / 1000, "segundos");
 
-// Si la hora de agregar ya pasó pero la de eliminar no, se activa el enlace de inmediato
-if (timeUntilAdd <= 0 && timeUntilRemove > 0) {
-  console.log("La hora de agregar ya pasó, activando enlace inmediatamente.");
-  addLink();
-}
+// Obtener elementos
+const link = document.getElementById("partido-vivo-a");
+const horaTexto = document.getElementById("hora-se-juega");
 
-// Programar las acciones solo si el tiempo es válido
-if (timeUntilAdd > 0) setTimeout(addLink, timeUntilAdd);
-if (timeUntilRemove > 0) setTimeout(removeLink, timeUntilRemove);
+// Si la hora de eliminar ya pasó, mostrar "Finaliz." y salir
+if (timeUntilRemove <= 0) {
+  console.log("El tiempo ha finalizado, estableciendo 'Finaliz.'");
+  if (horaTexto) horaTexto.textContent = "Finaliz.";
+} else {
+  // Si la hora de agregar ya pasó pero la de eliminar no, activar el enlace inmediatamente
+  if (timeUntilAdd <= 0) {
+    console.log("La hora de agregar ya pasó, activando enlace inmediatamente.");
+    addLink();
+  }
+
+  // Programar las acciones si el tiempo es válido
+  if (timeUntilAdd > 0) setTimeout(addLink, timeUntilAdd);
+  if (timeUntilRemove > 0) setTimeout(removeLink, timeUntilRemove);
+}
 
 function addLink() {
   console.log("Ejecutando addLink()");
-  const link = document.getElementById("partido-vivo-a");
   if (link) {
     link.setAttribute("href", "partido.html");
   } else {
     console.error("No se encontró #partido-vivo-a");
   }
 
-  const horaTexto = document.getElementById("hora-se-juega");
   if (horaTexto) {
     horaTexto.textContent = "En Vivo";
   } else {
@@ -1035,14 +1045,12 @@ function addLink() {
 
 function removeLink() {
   console.log("Ejecutando removeLink()");
-  const link = document.getElementById("partido-vivo-a");
   if (link) {
     link.removeAttribute("href");
   } else {
     console.error("No se encontró #partido-vivo-a");
   }
 
-  const horaTexto = document.getElementById("hora-se-juega");
   if (horaTexto) {
     horaTexto.textContent = "Finaliz.";
   } else {
