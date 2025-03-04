@@ -140,9 +140,15 @@ p.titulo-video {
     padding: 5px 0px;
 }
 .boton-ver-partido {
-    width: 95%;
     display: flex;
-    margin: 40px 2.5%;
+    position: absolute;
+    z-index: 1;
+    margin: 5px;
+    background: #0000001a;
+    border-radius: 50%;
+}
+.boton-ver-partido:hover {
+    background: #00000087;
 }
 a.ver-partido {
     background: linear-gradient(45deg, #431724, #ff004e);
@@ -154,6 +160,13 @@ a.ver-partido {
     border-radius: 5px;
     letter-spacing: 1px;
 }
+svg.svg-flecha {
+    width: 40px;
+    height: 40px;
+}
+path.path-flecha {
+     stroke: white;
+}
 @media (max-width: 621px) {
 }
 
@@ -164,38 +177,43 @@ a.ver-partido {
 
 
 <div class="fondo">
+
+<div class="boton-ver-partido"  onclick="cambiarVideo('https://8c5.pricesaskeloadsc.com/espn/tracks-v1a1/mono.m3u8?token=e1d71e88f3d17145814f48e3a1f718fe7260095a-03-1741133491-1741101091')">
+        <svg class="svg-flecha" xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
+            <path class="path-flecha" d="M6 12H18M6 12L11 7M6 12L11 17" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+    </div>
+
 <div class="video">
-<video id="video-video" poster="https://media.tycsports.com/files/2025/02/28/817343/milan-vs-lazio-en-vivo-como-llegan-al-partido_862x485.webp"  autoplay class="video-js vjs-default-skin" controls width="640" height="360">
-    <source src="https://8c5.pricesaskeloadsc.com/disney5/tracks-v1a1/mono.m3u8?token=d215fc4f35e59e32e5f5eed73768b5c1c14ed901-c4-1740968156-1740935756" type="application/x-mpegURL">
+<video id="video-video" poster="https://forzafootball.com/api/social/1217815684/match"  autoplay class="video-js vjs-default-skin" controls width="640" height="360">
+    <source src="https://8c5.pricesaskeloadsc.com/espn/tracks-v1a1/mono.m3u8?token=e1d71e88f3d17145814f48e3a1f718fe7260095a-03-1741133491-1741101091" type="application/x-mpegURL">
 </video>
 </div>
 
-<div class="boton-ver-partido">
-<a href="#" onclick="cambiarVideo('https://8c5.pricesaskeloadsc.com/disney5/tracks-v1a1/mono.m3u8?token=d215fc4f35e59e32e5f5eed73768b5c1c14ed901-c4-1740968156-1740935756')" class="ver-partido">Ver Partido</a>
-</div>
+
 
 <div class="infortmacion">
     <div class="arriba">
         <div class="escudos-nombres">
             <div class="equipos">
-                <img src="https://image-service.onefootball.com/transform?w=128&dpr=2&image=https://images.onefootball.com/icons/teams/164/23.png" alt="" class="escudo">
-                <p class="nombre-club">Milán</p>
+                <img src="https://image-service.onefootball.com/transform?w=22&h=22&dpr=2&image=https%253A%252F%252Fimages.onefootball.com%252Ficons%252Fteams%252F164%252F554.png" alt="" class="escudo">
+                <p class="nombre-club">Club Brujas</p>
             </div>
             <div class="equipos">
-                <img src="https://image-service.onefootball.com/transform?w=128&dpr=2&image=https://images.onefootball.com/icons/teams/164/139.png" alt="" class="escudo">
-                <p class="nombre-club">Lazio</p>
+                <img src="https://image-service.onefootball.com/transform?w=22&h=22&dpr=2&image=https%253A%252F%252Fimages.onefootball.com%252Ficons%252Fteams%252F164%252F199.png" alt="" class="escudo">
+                <p class="nombre-club">Aston Villa</p>
             </div>
         </div>
         <div class="linea"></div>
         <div class="fecha-tiempo">
             <div class="p-contenedor">
-                <p class="tiempo">hoy <br> 16:45</p>
+                <p class="tiempo">hoy <br> 14:45</p>
             </div>
         </div>
     </div>
     <div class="abajo">
-        <img src="https://image-service.onefootball.com/transform?w=128&dpr=2&image=https://images.onefootball.com/icons/leagueColoredCompetition/128/13.png" alt="" class="escudo">
-        <p class="nombre-liga">Serie A</p>
+        <img src="https://image-service.onefootball.com/transform?w=256&dpr=2&image=https://images.onefootball.com/icons/leagueColoredCompetition/128/5.png" alt="" class="escudo">
+        <p class="nombre-liga">Champions League</p>
     </div>
 </div>
 
@@ -205,22 +223,33 @@ a.ver-partido {
     <path fill="#F3F4F5" d="M10.0002 10c.9204 0 1.6666-.7462 1.6666-1.6667 0-.9204-.7462-1.6666-1.6666-1.6666-.9205 0-1.6667.7462-1.6667 1.6666 0 .9205.7462 1.6667 1.6667 1.6667z"/>
   </svg>
 </div>
-<p class="ubicacion">Estadio <br> <span class="span-ubicacion">Stadio Giuseppe Meazza</span></p>
+<p class="ubicacion">Estadio <br> <span class="span-ubicacion">Jan Breydelstadion</span></p>
 
 </div>
 
 <div class="videos-relacionados">
     <p class="videos-relacionados-p">Videos relacionados</p>
     <div class="noticia-videos">
-<a href="#" onclick="cambiarVideo('https://videos-cloudfront-usp.jwpsrv.com/67c54926_690a8cb7f5e095d1a2f2ed81ad0ffd4d2e1645de/sites/unouN4ju/media/B9MK4BPV/versions/TLCAGGg3/manifest.ism/manifest-audio_0_5lfuFo8w_u7tZmGGj=112016-video_0_5lfuFo8w_A2WXkoaR=5077051.m3u8')">
-    <p class="tiempo-video">01:32</p>
-    <img src="https://image-service.onefootball.com/transform?w=190&h=107&dpr=2&image=https%253A%252F%252Fcdn.jwplayer.com%252Fv2%252Fmedia%252FB9MK4BPV%252Fposter.jpg%253Fwidth%253D720" alt="" class="noticia-video-img">
-    <p class="titulo-video">Los mejores goles de la Lazio contra el AC Milan</p>
+<a id="relacionado" href="#" onclick="cambiarVideo('https://videos-cloudfront-usp.jwpsrv.com/67c7b382_3617887d58bb74853982b0d1a402afb13639e4cb/sites/unouN4ju/media/ZvKeVgNO/versions/WJpf0BD0/manifest.ism/manifest-video_0_AAbmlwle_H81T6OSu=2588683.m3u8')">
+    <p class="tiempo-video">00:47</p>
+    <img src="https://image-service.onefootball.com/transform?w=190&h=107&dpr=2&image=https%253A%252F%252Fcdn.jwplayer.com%252Fv2%252Fmedia%252FZvKeVgNO%252Fposter.jpg%253Fwidth%253D720" alt="" class="noticia-video-img">
+    <p class="titulo-video">Emery: "Tenemos que ser más consistentes fuera de casa"</p>
 </a>
-<a href="#" onclick="cambiarVideo('https://videos-cloudfront-usp.jwpsrv.com/67c55102_be8a1b7835931bdd7e762a66bff0b937997e070c/sites/pLhE9KGt/media/wOpniP4o/versions/rqzjXpup/manifest.ism/manifest-audio_0_G8xM4wMw_jg0wKpyv=112046-video_0_G8xM4wMw_DYXd7Kdg=4581727.m3u8')">
+<a href="#" onclick="cambiarVideo('https://videos-cloudfront-usp.jwpsrv.com/67c7b3bf_1322c117e2a314aeebcd51024c417a52023b42a2/sites/unouN4ju/media/sgRPsKHH/versions/iNgrRlv6/manifest.ism/manifest-audio_0_gAW112y9_RPgxZ2hP=112048-video_0_gAW112y9_8GiqWDF9=2896252.m3u8')">
     <p class="tiempo-video">00:30</p>
-    <img src="https://image-service.onefootball.com/transform?w=190&h=107&dpr=2&image=https%253A%252F%252Fcdn.jwplayer.com%252Fv2%252Fmedia%252FwOpniP4o%252Fposter.jpg%253Fwidth%253D720" alt="" class="noticia-video-img">
-    <p class="titulo-video">El decisivo gol de Santi Giménez contra el Hellas Verona</p>
+    <img src="https://image-service.onefootball.com/transform?w=190&h=107&dpr=2&image=https%253A%252F%252Fcdn.jwplayer.com%252Fv2%252Fmedia%252FsgRPsKHH%252Fposter.jpg%253Fwidth%253D720" alt="" class="noticia-video-img">
+    <p class="titulo-video">El Leipzig ficha a Kosta Nedeljković del Aston Villa
+    </p>
+</a>
+<a href="#" onclick="cambiarVideo('https://videos-cloudfront-usp.jwpsrv.com/67c7b465_1619b866484eabfaad34670cb59ad386004aaf57/sites/unouN4ju/media/0dvMMGNe/versions/M8jy6afi/manifest.ism/manifest-video_0_1QcqQL7x_vmVRLXjI=1951627.m3u8')">
+    <p class="tiempo-video">00:45</p>
+    <img src="https://image-service.onefootball.com/transform?w=190&h=107&dpr=2&image=https%253A%252F%252Fcdn.jwplayer.com%252Fv2%252Fmedia%252F0dvMMGNe%252Fposter.jpg%253Fwidth%253D720" alt="" class="noticia-video-img">
+    <p class="titulo-video">Marco Asensio, Al Aston Villa</p>
+</a>
+<a href="#" onclick="cambiarVideo('https://videos-cloudfront-usp.jwpsrv.com/67c7b4c7_1b31bd70ee588196f0c727da6e1f787606f124b5/sites/unouN4ju/media/kAvfnjXJ/versions/rI0f36hw/manifest.ism/manifest-audio_0_Eh6baGsd_qbf3tIvq=112025-video_0_Eh6baGsd_vyzpc1o4=3459704.m3u8')">
+    <p class="tiempo-video">01:04</p>
+    <img src="https://image-service.onefootball.com/transform?w=190&h=107&dpr=2&image=https%253A%252F%252Fcdn.jwplayer.com%252Fv2%252Fmedia%252FkAvfnjXJ%252Fposter.jpg%253Fwidth%253D720" alt="" class="noticia-video-img">
+    <p class="titulo-video">Brendan Rodgers, orgulloso de la actuación del Celtic en la Champions</p>
 </a>
 </div>
 </div>
@@ -239,6 +268,7 @@ a.ver-partido {
         player.src({ src: nuevoSrc, type: 'application/x-mpegURL' });
         player.play();
     }
+
 
    </script>
 </script>
